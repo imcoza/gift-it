@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift-it — Pricing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* HERO ------------------------------------------------------- */
+    .pricing-hero {
+      padding-top: var(--s12);
+      padding-bottom: var(--s10);
+    }
+
+    .pricing-hero__title {
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.03em;
+      line-height: var(--lh-display);
+      color: var(--color-text-primary);
+      max-width: 640px;
+      margin-bottom: var(--s3);
+    }
+
+    .pricing-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      max-width: 52ch;
+      line-height: 1.6;
+      margin-bottom: var(--s5);
+    }
+
+
+    /* DIWALI CAMPAIGN TIERS -------------------------------------- */
+    .diwali-tiers {
+      padding-bottom: var(--s10);
+    }
+
+    .diwali-tiers__header {
+      background-color: var(--color-accent-dim);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: var(--s5) var(--s6);
+      margin-bottom: var(--s6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s4);
+      flex-wrap: wrap;
+    }
+
+    .diwali-tiers__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--s1);
+    }
+
+    .diwali-tiers__title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.018em;
+      color: var(--color-text-primary);
+    }
+
+    .diwali-tiers__deadline {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+    }
+
+    .diwali-tiers__deadline strong {
+      color: var(--color-text-primary);
+      font-weight: var(--weight-semibold);
+    }
+
+    .diwali-tiers__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s3);
+    }
+
+    @media (max-width: 640px) {
+      .diwali-tiers__grid { grid-template-columns: 1fr; }
+    }
+
+    /* BESPOKE TIER ─ full-width dark card below the 4-column grid */
+    .bespoke-tier {
+      margin-top: var(--s3);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s7) var(--s8);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--s8);
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .bespoke-tier {
+        grid-template-columns: 1fr;
+        gap: var(--s5);
+        padding: var(--s6);
+      }
+    }
+
+    .bespoke-tier__badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: var(--s2);
+    }
+
+    .bespoke-tier__name {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.018em;
+      color: #fff;
+      margin-bottom: var(--s2);
+    }
+
+    .bespoke-tier__desc {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+      max-width: 60ch;
+    }
+
+    .bespoke-tier__pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: var(--s4);
+    }
+
+    .bespoke-tier__pill {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-medium);
+      color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+
+    .bespoke-tier__cta {
+      text-align: right;
+    }
+
+    @media (max-width: 860px) {
+      .bespoke-tier__cta { text-align: left; }
+    }
+
+    .bespoke-tier__price {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: var(--s3);
+    }
+
+    .btn--bespoke {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #fff;
+      color: var(--color-text-primary);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: opacity var(--ease);
+      white-space: nowrap;
+    }
+
+    .btn--bespoke:hover { opacity: 0.9; }
+
+    .diwali-tier-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+      overflow: hidden;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .diwali-tier-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Tier accent top borders */
+    .tier--classic  { border-top: 3px solid var(--color-border); }
+    .tier--hamper   { border-top: 3px solid var(--color-accent); }
+    .tier--premium  { border-top: 3px solid #C08000; }
+    .tier--luxury   { border-top: 3px solid #7A4F00; }
+
+    /* Popular badge — outside image wrap so it doesn't get clipped */
+    .tier-popular-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-dim);
+      border: 1px solid var(--color-accent);
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-bottom: var(--s1);
+      align-self: flex-start;
+    }
+
+    /* Content chips — compact scannable items */
+    .tier-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: var(--s3) 0 var(--s1);
+    }
+
+    .tier-chip {
+      font-size: 11px;
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      background: var(--color-surface-alt);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 4px 10px;
+      line-height: 1.3;
+    }
+
+    /* Buttons always stick to card bottom */
+    .tier-card-buttons {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--s2);
+      padding-top: var(--s2);
+    }
+
+    .diwali-tier-card__name {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.015em;
+      color: var(--color-text-primary);
+    }
+
+    .diwali-tier-card__price {
+      font-size: 32px;
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+      line-height: 1;
+    }
+
+    .diwali-tier-card__price sup {
+      font-size: 16px;
+      font-weight: var(--weight-semibold);
+      vertical-align: top;
+      margin-top: 5px;
+      display: inline-block;
+    }
+
+    .diwali-tier-card__per {
+      font-size: var(--text-xs);
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+    }
+
+    .diwali-tier-card__features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .diwali-tier-card__feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .diwali-tier-card__feature svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--color-accent);
+    }
+
+    /* Gift examples block inside tier card */
+    .gift-examples {
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--s3);
+    }
+
+    .gift-examples__label {
+      font-size: 10px;
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--s2);
+    }
+
+    .gift-examples__list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .gift-example {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .gift-example__dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--color-border);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .gift-example__text {
+      font-size: var(--text-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .gift-example__text strong {
+      color: var(--color-text-primary);
+      font-weight: var(--weight-medium);
+    }
+
+    .gift-examples__note {
+      font-size: 10px;
+      color: var(--color-text-muted);
+      margin-top: var(--s2);
+      font-style: italic;
+    }
+
+    /* ─── TIER CARD IMAGE ──────────────────────────────────────── */
+    .diwali-tier-card__img-wrap {
+      margin: -40px -40px 0 -40px;
+      border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0;
+      overflow: hidden;
+      height: 168px;
+      flex-shrink: 0;
+      position: relative;
+      background-color: var(--color-surface-alt);
+    }
+
+    .diwali-tier-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 500ms ease;
+    }
+
+    .diwali-tier-card:hover .diwali-tier-card__img {
+      transform: scale(1.05);
+    }
+
+    /* dark gradient at bottom of image so text is legible */
+    .diwali-tier-card__img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(10, 12, 20, 0.60) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* small pill label bottom-left of image */
+    .diwali-tier-card__img-label {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 10px;
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.90);
+      white-space: nowrap;
+    }
+
+    /* "Most picked" badge repositioned for the featured card image */
+    .diwali-tier-card__img-wrap .tier-badge {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      z-index: 2;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: rgba(79, 142, 247, 0.22);
+      border: 1px solid rgba(79, 142, 247, 0.40);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+
+
+
+    /* ─── COST ESTIMATOR ───────────────────────────────────────── */
+    .estimator {
+      padding-bottom: var(--s10);
+    }
+
+    .estimator__card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s7) var(--s8);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s8);
+      align-items: start;
+    }
+
+    @media (max-width: 800px) {
+      .estimator__card { grid-template-columns: 1fr; gap: var(--s6); padding: var(--s5); }
+    }
+
+    .estimator__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--s2);
+    }
+
+    .estimator__heading {
+      font-size: var(--text-section);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.022em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--s6);
+      line-height: 1.25;
+    }
+
+    /* Headcount input */
+    .headcount-row {
+      display: flex;
+      align-items: center;
+      gap: var(--s3);
+      margin-bottom: var(--s5);
+    }
+
+    .headcount-label {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-primary);
+      white-space: nowrap;
+    }
+
+    .headcount-input {
+      width: 80px;
+      padding: 8px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      font-size: var(--text-md);
+      font-weight: var(--weight-semibold);
+      font-family: inherit;
+      text-align: center;
+      outline: none;
+      transition: border-color var(--ease);
+    }
+
+    .headcount-input:focus { border-color: var(--color-accent); }
+
+    .headcount-slider {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--color-border);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .headcount-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    }
+
+    .headcount-slider::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    }
+
+    /* Tier selector */
+    .tier-selector-label {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-primary);
+      margin-bottom: var(--s2);
+    }
+
+    .tier-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s2);
+      margin-bottom: var(--s6);
+    }
+
+    @media (max-width: 600px) {
+      .tier-buttons { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .tier-btn {
+      padding: 10px 6px;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+      cursor: pointer;
+      text-align: center;
+      transition: border-color var(--ease), background-color var(--ease);
+      font-family: inherit;
+    }
+
+    .tier-btn.is-active {
+      border-color: var(--color-accent);
+      background-color: var(--color-accent-dim);
+    }
+
+    .tier-btn__price {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      display: block;
+    }
+
+    .tier-btn__name {
+      font-size: 10px;
+      color: var(--color-text-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Breakdown */
+    .estimator__breakdown {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px var(--s4);
+      border-bottom: 1px solid var(--color-border-faint);
+      font-size: var(--text-sm);
+    }
+
+    .breakdown-row:last-child { border-bottom: none; }
+
+    .breakdown-row__label {
+      color: var(--color-text-secondary);
+    }
+
+    .breakdown-row__value {
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+    }
+
+    .breakdown-row--total {
+      background-color: var(--color-surface-alt);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .breakdown-row--total .breakdown-row__label {
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+    }
+
+    .breakdown-row--total .breakdown-row__value {
+      font-size: var(--text-lg);
+      color: var(--color-accent);
+    }
+
+    .estimator__note {
+      font-size: 10px;
+      color: var(--color-text-muted);
+      margin-top: var(--s2);
+      line-height: 1.5;
+    }
+
+    /* ─── BULK ORDER FORM ──────────────────────────────────────── */
+    .bulk-form-section {
+      padding-bottom: var(--s15);
+    }
+
+    .bulk-form-section__header {
+      margin-bottom: var(--s8);
+      max-width: 52ch;
+    }
+
+    .bulk-form-section__title {
+      font-size: var(--text-section);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.022em;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+
+    .bulk-form-section__sub {
+      font-size: var(--text-md);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .bulk-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s4);
+      max-width: 860px;
+    }
+
+    @media (max-width: 640px) {
+      .bulk-form { grid-template-columns: 1fr; }
+    }
+
+    .bulk-form__full { grid-column: 1 / -1; }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-field label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      padding: 11px var(--s3);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      font-size: var(--text-sm);
+      font-family: inherit;
+      outline: none;
+      transition: border-color var(--ease);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.5;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--color-accent);
+    }
+
+    .bulk-form__submit-row {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+      flex-wrap: wrap;
+      padding-top: var(--s2);
+    }
+
+    .bulk-form__disclaimer {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- DIWALI BANNER -->
+  <div style="background-color: var(--color-accent); padding: 10px 0; text-align: center;">
+    <div class="container">
+      <p style="font-size: var(--text-xs); font-weight: 600; color: #fff; letter-spacing: 0.01em;">
+        Diwali 2026 · October 20
+        <a href="contact.html" style="font-weight: 700; color: #fff; text-decoration: underline; text-underline-offset: 2px; margin-left: 12px;">Get a campaign quote →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Gift<span>-it</span></a>
+        <nav aria-label="Primary">
+          <ul class="nav__links" role="list">
+            <li><a href="pricing.html" class="nav__link is-active">Packages</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__actions">
+          
+          <a href="contact.html" class="btn btn--primary">Plan Diwali gifting</a>
+          <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobile-nav">
+      <a href="pricing.html" class="nav__link">Packages</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <div class="nav__mobile-actions">
+        
+        <a href="pricing.html" class="btn btn--primary btn--full">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="pricing-hero" aria-labelledby="pricing-heading">
+      <div class="container">
+        <span class="eyebrow" aria-hidden="true">Diwali 2026 · October 20</span>
+        <h1 class="pricing-hero__title" id="pricing-heading">Bulk Diwali gifting — priced for HR teams</h1>
+        <p class="pricing-hero__sub">Pick a budget per employee, enter your headcount, and see your total cost instantly. We handle sourcing, branded packaging, and pan-India delivery — you do nothing else.</p>
+        <div style="display:flex; gap: var(--s3); flex-wrap: wrap; margin-top: var(--s2);">
+          <span style="font-size: var(--text-xs); color: var(--color-text-secondary); display:flex; align-items:center; gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Quote in 24 hours
+          </span>
+          <span style="font-size: var(--text-xs); color: var(--color-text-secondary); display:flex; align-items:center; gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            No payment until you approve
+          </span>
+          <span style="font-size: var(--text-xs); color: var(--color-text-secondary); display:flex; align-items:center; gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            No hidden fees · fixed price per employee
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- COST ESTIMATOR -->
+    <section class="estimator" aria-labelledby="estimator-heading">
+      <div class="container">
+        <div class="estimator__card">
+
+          <!-- Left: controls -->
+          <div>
+            <p class="estimator__label">Campaign calculator</p>
+            <h2 class="estimator__heading" id="estimator-heading">Estimate your<br>Diwali budget</h2>
+
+            <!-- Headcount -->
+            <div class="headcount-row">
+              <span class="headcount-label">Employees</span>
+              <input
+                type="number"
+                class="headcount-input"
+                id="headcount-input"
+                value="100"
+                min="5"
+                max="10000"
+                aria-label="Number of employees"
+              >
+              <input
+                type="range"
+                class="headcount-slider"
+                id="headcount-slider"
+                min="5"
+                max="2000"
+                value="100"
+                aria-label="Slide to adjust employee count"
+              >
+            </div>
+
+            <!-- Tier buttons -->
+            <p class="tier-selector-label">Budget per employee</p>
+            <div class="tier-buttons" role="group" aria-label="Select package">
+              <button class="tier-btn" data-tier-value="1499" aria-pressed="false">
+                <span class="tier-btn__price">₹1,499</span>
+                <span class="tier-btn__name">Classic</span>
+              </button>
+              <button class="tier-btn is-active" data-tier-value="2999" aria-pressed="true">
+                <span class="tier-btn__price">₹2,999</span>
+                <span class="tier-btn__name">Hamper ★</span>
+              </button>
+              <button class="tier-btn" data-tier-value="4999" aria-pressed="false">
+                <span class="tier-btn__price">₹4,999</span>
+                <span class="tier-btn__name">Premium</span>
+              </button>
+              <button class="tier-btn" data-tier-value="9999" aria-pressed="false">
+                <span class="tier-btn__price">₹9,999</span>
+                <span class="tier-btn__name">Luxury</span>
+              </button>
+            </div>
+
+            <a href="contact.html" class="btn btn--primary btn--lg" id="estimator-cta" style="display:inline-flex; align-items:center; gap:8px;">
+              Get a campaign quote
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <!-- Right: live breakdown -->
+          <div>
+            <p class="estimator__label">Your estimate</p>
+            <div class="estimator__breakdown" aria-live="polite" aria-label="Live cost breakdown">
+              <div class="breakdown-row">
+                <span class="breakdown-row__label" id="bd-gift-label">Package total (100 × ₹2,999 per employee)</span>
+                <span class="breakdown-row__value" id="bd-gift-value">₹2,99,900</span>
+              </div>
+              <div class="breakdown-row">
+                <span class="breakdown-row__label">Branded packaging + Diwali card</span>
+                <span class="breakdown-row__value">Included</span>
+              </div>
+              <div class="breakdown-row breakdown-row--total">
+                <span class="breakdown-row__label">You pay exactly</span>
+                <span class="breakdown-row__value" id="bd-total-value">₹2,99,900</span>
+              </div>
+            </div>
+            <p class="estimator__note">Fixed all-in price · no service fee added · 50% advance to book · balance on dispatch · mixed packages across employee levels supported</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DIWALI CAMPAIGN PRICING -->
+    <section class="diwali-tiers" aria-labelledby="diwali-pricing-heading">
+      <div class="container">
+
+        <div class="diwali-tiers__header">
+          <div>
+            <p class="diwali-tiers__label">Diwali 2026 · October 20</p>
+            <p class="diwali-tiers__title" id="diwali-pricing-heading">Running a Diwali campaign?</p>
+          </div>
+        </div>
+
+        <div class="diwali-tiers__grid">
+
+          <!-- Package 1: Classic Diwali Box — ₹1,499 -->
+          <div class="diwali-tier-card tier--classic" style="cursor:pointer;" onclick="window.location='classic-box.html'">
+            <div class="diwali-tier-card__img-wrap">
+              <img class="diwali-tier-card__img" src="https://images.unsplash.com/photo-1699708263762-00ca477760bd?w=600&h=340&fit=crop&auto=format&q=82" alt="Kaju Katli and assorted Diwali sweets" loading="lazy">
+              <span class="diwali-tier-card__img-label">🪔 Sweets only</span>
+            </div>
+            <div>
+              <p class="diwali-tier-card__name">Classic Diwali Box</p>
+              <p class="diwali-tier-card__price"><sup>₹</sup>1,499</p>
+              <p class="diwali-tier-card__per">per employee · all-in</p>
+            </div>
+            <div class="tier-chips">
+              <span class="tier-chip">🍬 500g assorted mithai</span>
+              <span class="tier-chip">📦 Branded kraft box</span>
+              <span class="tier-chip">✉️ Personalised card</span>
+            </div>
+            <div class="tier-card-buttons">
+              <a href="classic-box.html" class="btn btn--outline btn--full" onclick="event.stopPropagation()">See full details</a>
+              <a href="contact.html?budget=1499" class="btn btn--primary btn--full" onclick="event.stopPropagation()">Get a quote →</a>
+            </div>
+          </div>
+
+          <!-- Package 2: Diwali Hamper — ₹2,999 (Most popular) -->
+          <div class="diwali-tier-card tier--hamper" style="border-color: var(--color-accent); cursor:pointer;" onclick="window.location='diwali-hamper.html'">
+            <div class="diwali-tier-card__img-wrap">
+              <img class="diwali-tier-card__img" src="https://images.unsplash.com/photo-1695568181363-af5c78f4d059?w=600&h=340&fit=crop&auto=format&q=82" alt="Traditional Indian sweets assortment" loading="lazy">
+              <span class="diwali-tier-card__img-label">🎁 Sweets + dry fruits</span>
+            </div>
+            <span class="tier-popular-badge">★ Most popular</span>
+            <div>
+              <p class="diwali-tier-card__name">Diwali Hamper</p>
+              <p class="diwali-tier-card__price"><sup>₹</sup>2,999</p>
+              <p class="diwali-tier-card__per">per employee · all-in</p>
+            </div>
+            <div class="tier-chips">
+              <span class="tier-chip">🍬 500g assorted mithai</span>
+              <span class="tier-chip">🌰 250g dry fruits (3 varieties)</span>
+              <span class="tier-chip">📦 Premium rigid box</span>
+              <span class="tier-chip">✉️ Personalised card</span>
+            </div>
+            <div class="tier-card-buttons">
+              <a href="diwali-hamper.html" class="btn btn--outline btn--full" onclick="event.stopPropagation()">See full details</a>
+              <a href="contact.html?budget=2999" class="btn btn--primary btn--full" onclick="event.stopPropagation()">Get a quote →</a>
+            </div>
+          </div>
+
+          <!-- Package 3: Premium Hamper — ₹4,999 -->
+          <div class="diwali-tier-card tier--premium" style="cursor:pointer;" onclick="window.location='premium-box.html'">
+            <div class="diwali-tier-card__img-wrap">
+              <img class="diwali-tier-card__img" src="https://images.unsplash.com/photo-1769255485022-f9bb6d6e8169?w=600&h=340&fit=crop&auto=format&q=82" alt="Five bowls of premium dry fruits — cashews, almonds, pistachios, walnuts, dates" loading="lazy">
+              <span class="diwali-tier-card__img-label">✨ Premium + saffron</span>
+            </div>
+            <div>
+              <p class="diwali-tier-card__name">Premium Hamper</p>
+              <p class="diwali-tier-card__price"><sup>₹</sup>4,999</p>
+              <p class="diwali-tier-card__per">per employee · all-in</p>
+            </div>
+            <div class="tier-chips">
+              <span class="tier-chip">🍬 750g premium mithai (5 var.)</span>
+              <span class="tier-chip">🌰 400g dry fruits (5 varieties)</span>
+              <span class="tier-chip">🌸 1g Kashmiri saffron</span>
+              <span class="tier-chip">🎁 Fabric-wrapped box</span>
+            </div>
+            <div class="tier-card-buttons">
+              <a href="premium-box.html" class="btn btn--outline btn--full" onclick="event.stopPropagation()">See full details</a>
+              <a href="contact.html?budget=4999" class="btn btn--primary btn--full" onclick="event.stopPropagation()">Get a quote →</a>
+            </div>
+          </div>
+
+          <!-- Package 4: Luxury Gift Box — ₹9,999 -->
+          <div class="diwali-tier-card tier--luxury" style="cursor:pointer;" onclick="window.location='luxury-box.html'">
+            <div class="diwali-tier-card__img-wrap">
+              <img class="diwali-tier-card__img" src="https://images.unsplash.com/photo-1773450970959-cef81e9b1053?w=600&h=340&fit=crop&auto=format&q=82" alt="Luxury wooden gift hamper with food and gifts" loading="lazy">
+              <span class="diwali-tier-card__img-label">👑 Luxury experience</span>
+            </div>
+            <div>
+              <p class="diwali-tier-card__name">Luxury Gift Box</p>
+              <p class="diwali-tier-card__price"><sup>₹</sup>9,999</p>
+              <p class="diwali-tier-card__per">per employee · all-in</p>
+            </div>
+            <div class="tier-chips">
+              <span class="tier-chip">🍬 1kg ultra-premium mithai</span>
+              <span class="tier-chip">🌰 600g dry fruits (6 var. + macadamia)</span>
+              <span class="tier-chip">🌸 2g Kashmiri saffron</span>
+              <span class="tier-chip">🍯 200g artisan honey</span>
+            </div>
+            <div class="tier-card-buttons">
+              <a href="luxury-box.html" class="btn btn--outline btn--full" onclick="event.stopPropagation()">See full details</a>
+              <a href="contact.html?budget=9999" class="btn btn--primary btn--full" onclick="event.stopPropagation()">Get a quote →</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CUSTOM / BESPOKE TIER — single merged section -->
+        <div style="
+          margin-top: var(--s4);
+          background-color: var(--color-surface);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-lg);
+          padding: var(--s8) var(--s8);
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: var(--s8);
+          align-items: center;
+        " role="region" aria-labelledby="custom-heading">
+
+          <div>
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: block; margin-bottom: var(--s2);">✦ Customisable · any budget</span>
+            <p id="custom-heading" style="font-size: clamp(22px, 3vw, 30px); font-weight: var(--weight-bold); letter-spacing: -0.022em; color: #fff; margin-bottom: var(--s3); line-height: 1.2;">Need a different combination,<br>large headcount, or mixed tiers?</p>
+            <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 56ch; margin-bottom: var(--s5);">
+              Tell us your budget per employee and team size. We'll put together a curated selection, share a quote within 24 hours, and handle everything end-to-end. No catalogue limits. No setup fees.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span style="font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 4px 12px;">Any headcount</span>
+              <span style="font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 4px 12px;">Mixed tiers across levels</span>
+              <span style="font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 4px 12px;">Custom mithai &amp; dry fruit mix</span>
+            
+              <span style="font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 4px 12px;">Named campaign manager</span>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: var(--s3); align-items: center; flex-shrink: 0; min-width: 200px;">
+            <a href="contact.html"
+               style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--color-accent); color: #fff; font-size: var(--text-sm); font-weight: var(--weight-semibold); padding: 13px 24px; border-radius: var(--radius-md); text-decoration: none; transition: opacity 140ms ease; white-space: nowrap; width: 100%;"
+               onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+              Get a custom quote →
+            </a>
+            <a href="https://wa.me/917090781972?text=Hi%2C%20I%27d%20like%20a%20custom%20Diwali%20gifting%20quote."
+               target="_blank" rel="noopener noreferrer"
+               style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #fff; font-size: var(--text-sm); font-weight: var(--weight-semibold); padding: 13px 24px; border-radius: var(--radius-md); text-decoration: none; transition: opacity 140ms ease; white-space: nowrap; width: 100%;"
+               onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp us
+            </a>
+            <p style="font-size: 11px; color: rgba(255,255,255,0.35); text-align: center; line-height: 1.5;">+91 70 9078 1972 · reply within 2 hrs</p>
+          </div>
+
+        </div>
+
+        <!-- Responsive collapse for custom tier -->
+        <style>
+          @media (max-width: 760px) {
+            [aria-labelledby="custom-heading"] { grid-template-columns: 1fr !important; gap: var(--s5) !important; padding: var(--s6) !important; }
+            [aria-labelledby="custom-heading"] > div:last-child { min-width: unset !important; width: 100%; }
+          }
+        </style>
+
+        <p style="margin-top: var(--s4); font-size: var(--text-xs); color: var(--color-text-muted); text-align: center;">
+          All prices are the final per-employee cost — no service fee on top. Branded packaging and pan-India shipping included.
+          50% advance to book · balance on dispatch · mixed packages across levels supported.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- BULK ORDER FORM -->
+    <section class="bulk-form-section" aria-labelledby="bulk-form-heading">
+      <div class="container">
+        <div class="bulk-form-section__header">
+          <span class="eyebrow" aria-hidden="true">Place a bulk order</span>
+          <h2 class="bulk-form-section__title" id="bulk-form-heading">Ready to order? Tell us about your team.</h2>
+          <p class="bulk-form-section__sub">Fill this in and we'll send you a confirmed quote with gift samples within 24 hours — no payment until you approve.</p>
+        </div>
+
+        <form class="bulk-form" id="bulk-order-form" novalidate>
+
+          <div class="form-field">
+            <label for="bf-name">Your name</label>
+            <input type="text" id="bf-name" name="name" placeholder="Your name" autocomplete="name" required>
+          </div>
+
+          <div class="form-field">
+            <label for="bf-company">Company name</label>
+            <input type="text" id="bf-company" name="company" placeholder="Company name" required>
+          </div>
+
+          <div class="form-field">
+            <label for="bf-designation">Your role</label>
+            <select id="bf-designation" name="designation">
+              <option value="">Select your role</option>
+              <option>HR Manager</option>
+              <option>Head of HR / CHRO</option>
+              <option>HR Business Partner</option>
+              <option>People Operations</option>
+              <option>Admin / Office Manager</option>
+              <option>Founder / Co-founder</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="bf-phone">WhatsApp / phone number</label>
+            <input type="tel" id="bf-phone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" required>
+          </div>
+
+          <div class="form-field">
+            <label for="bf-email">Work email</label>
+            <input type="email" id="bf-email" name="email" placeholder="you@company.in" autocomplete="email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="bf-headcount">Number of employees to gift</label>
+            <input type="number" id="bf-headcount" name="headcount" placeholder="e.g. 250" min="5" required>
+          </div>
+
+          <div class="form-field">
+            <label for="bf-tier">Preferred budget per employee</label>
+            <select id="bf-tier" name="tier" required>
+              <option value="">Select a package</option>
+              <option value="1499">₹1,499 — Classic Diwali Box (500g mithai + kraft box)</option>
+              <option value="2999">₹2,999 — Diwali Hamper (500g mithai + 250g dry fruits)</option>
+              <option value="4999">₹4,999 — Premium Hamper (750g mithai + 400g dry fruits + saffron)</option>
+              <option value="9999">₹9,999 — Luxury Gift Box (1kg mithai + 600g dry fruits + saffron + honey)</option>
+              <option value="custom">Custom / Mixed packages — I'll share details</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="bf-cities">Delivery cities / states</label>
+            <input type="text" id="bf-cities" name="cities" placeholder="e.g. Bengaluru, Mumbai, Delhi, Remote employees">
+          </div>
+
+          <div class="form-field bulk-form__full">
+            <label for="bf-notes">Anything specific? (optional)</label>
+            <textarea id="bf-notes" name="notes" placeholder="E.g. we need mixed tiers for different levels · our logo needs to go on the box · we have 30 remote employees in Tier 2 cities…"></textarea>
+          </div>
+
+          <div class="bulk-form__submit-row">
+            <button type="submit" class="btn btn--primary btn--lg" id="bf-submit">
+              Send my order brief →
+            </button>
+            <p class="bulk-form__disclaimer">
+              We'll respond within 24 hours with a confirmed quote + sample selections.<br>
+Submit your quote form early — we'll confirm lead times before you pay anything.
+            </p>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Gift<span>-it</span></p>
+          <p class="footer__brand-desc">Diwali gifting for Indian companies — sourced, packaged, delivered.</p>
+        </div>
+        <div>
+          <p class="footer__col-label">Packages</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="classic-box.html" class="footer__link">Classic Box · ₹1,499</a></li>
+            <li><a href="diwali-hamper.html" class="footer__link">Diwali Hamper · ₹2,999</a></li>
+            <li><a href="premium-box.html" class="footer__link">Premium Hamper · ₹4,999</a></li>
+            <li><a href="luxury-box.html" class="footer__link">Luxury Gift Box · ₹9,999</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-label">Company</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-label">Get a quote</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="contact.html" class="footer__link">Submit order brief</a></li>
+            <li><a href="https://wa.me/917090781972" class="footer__link" target="_blank" rel="noopener">WhatsApp us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Gift-it Technologies Pvt. Ltd. · Bengaluru, India</p>
+        <nav aria-label="Legal"><ul class="footer__legal" role="list">
+          <li><a href="#" class="footer__legal-link">Privacy</a></li>
+          <li><a href="#" class="footer__legal-link">Terms</a></li>
+        </ul></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── MOBILE NAV ─────────────────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('is-open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+
+    // ── COST ESTIMATOR ─────────────────────────────────────────
+    (function () {
+      const headcountInput  = document.getElementById('headcount-input');
+      const headcountSlider = document.getElementById('headcount-slider');
+      const tierBtns        = document.querySelectorAll('.tier-btn');
+      const bdGiftLabel     = document.getElementById('bd-gift-label');
+      const bdGiftValue     = document.getElementById('bd-gift-value');
+      const bdTotalValue    = document.getElementById('bd-total-value');
+      const estimatorCta    = document.getElementById('estimator-cta');
+
+      let headcount   = 100;
+      let tierValue   = 2999;
+
+      // Indian number format (e.g. 1,99,900)
+      function formatINR(n) {
+        return n.toLocaleString('en-IN');
+      }
+
+      function tierName(v) {
+        return { 1499: 'Classic Box', 2999: 'Diwali Hamper', 4999: 'Premium Hamper', 9999: 'Luxury Gift Box' }[v] || '';
+      }
+
+      function update() {
+        const total = headcount * tierValue;
+
+        bdGiftLabel.textContent  = `Package total (${formatINR(headcount)} × ₹${formatINR(tierValue)} per employee)`;
+        bdGiftValue.textContent  = '₹' + formatINR(total);
+        bdTotalValue.textContent = '₹' + formatINR(total);
+
+        // Update CTA URL
+        const params = new URLSearchParams({ headcount, tier: tierValue, total });
+        estimatorCta.href = 'contact.html?' + params.toString();
+      }
+
+      // Sync slider ↔ input
+      headcountSlider.addEventListener('input', () => {
+        headcount = parseInt(headcountSlider.value, 10);
+        headcountInput.value = headcount;
+        update();
+      });
+
+      headcountInput.addEventListener('input', () => {
+        let v = parseInt(headcountInput.value, 10);
+        if (isNaN(v) || v < 1) v = 1;
+        headcount = v;
+        headcountSlider.value = Math.min(v, 2000);
+        update();
+      });
+
+      // Tier buttons
+      tierBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tierBtns.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-pressed', 'false'); });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-pressed', 'true');
+          tierValue = parseInt(btn.dataset.tierValue, 10);
+          update();
+        });
+      });
+
+      update();
+    })();
+
+
+    // ── BULK ORDER FORM ────────────────────────────────────────
+    (function () {
+      const form = document.getElementById('bulk-order-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name        = form.querySelector('#bf-name').value.trim();
+        const company     = form.querySelector('#bf-company').value.trim();
+        const designation = form.querySelector('#bf-designation').value;
+        const phone       = form.querySelector('#bf-phone').value.trim();
+        const email       = form.querySelector('#bf-email').value.trim();
+        const headcount   = form.querySelector('#bf-headcount').value.trim();
+        const tier        = form.querySelector('#bf-tier').value;
+        const cities      = form.querySelector('#bf-cities').value.trim();
+        const notes       = form.querySelector('#bf-notes').value.trim();
+
+        const tierLabel = {
+          '1499':   '₹1,499 — Classic Diwali Box',
+          '2999':   '₹2,999 — Diwali Hamper',
+          '4999':   '₹4,999 — Premium Hamper',
+          '9999':   '₹9,999 — Luxury Gift Box',
+          'custom': 'Custom / Mixed'
+        }[tier] || tier;
+
+        const parts = [
+          `Hi, I'd like a Diwali bulk gifting quote 🪔`,
+          ``,
+          `Name: ${name}`,
+          `Company: ${company}`,
+          `Role: ${designation}`,
+          `Email: ${email}`,
+          ``,
+          `Employees to gift: ${headcount}`,
+          `Budget tier: ${tierLabel}`,
+          `Delivery cities: ${cities || 'TBD'}`,
+        ];
+        if (notes) parts.push(`Notes: ${notes}`);
+        const lines = parts.join('\n');
+
+        const waUrl = 'https://wa.me/917090781972?text=' + encodeURIComponent(lines.trim());
+        window.open(waUrl, '_blank');
+      });
+    })();
+  </script>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/917090781972?text=Hi%2C%20I%20want%20to%20plan%20our%20Diwali%20gifting%20through%20Giftly"
+     class="whatsapp-fab"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp — +91 70 9078 1972">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+</body>
+</html>

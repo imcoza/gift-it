@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diwali Packages — Gift-it</title>
+  <meta name="description" content="Three Diwali gifting tiers, each with curated themed options. Your team picks a tier and theme — we handle sourcing, packaging, and delivery across India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── DIWALI BANNER ───────────────────────────────────────── */
+    .diwali-banner { background-color: var(--color-accent); padding: 10px 0; text-align: center; }
+    .diwali-banner__inner { display: flex; align-items: center; justify-content: center; gap: var(--s3); flex-wrap: wrap; }
+    .diwali-banner__text { font-size: var(--text-xs); font-weight: var(--weight-semibold); color: #fff; letter-spacing: 0.01em; }
+    .diwali-banner__dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.5); display: inline-block; }
+    .diwali-banner__link { font-size: var(--text-xs); font-weight: var(--weight-bold); color: #fff; text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+    .diwali-banner__link:hover { opacity: 0.85; }
+
+    /* ── WHATSAPP FAB ────────────────────────────────────────── */
+    .whatsapp-fab { position: fixed; bottom: 28px; right: 28px; z-index: 200; width: 52px; height: 52px; border-radius: 50%; background-color: #25D366; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: transform var(--ease), opacity var(--ease); }
+    .whatsapp-fab:hover { transform: scale(1.08); opacity: 0.95; }
+
+    /* ── HERO ────────────────────────────────────────────────── */
+    .pkg-hero {
+      padding-top: var(--s12);
+      padding-bottom: var(--s8);
+      text-align: center;
+    }
+    .pkg-hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--s3);
+    }
+    .pkg-hero__title {
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
+      line-height: var(--lh-display);
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+      max-width: 640px;
+      margin: 0 auto var(--s4);
+    }
+    .pkg-hero__title em { font-style: normal; color: var(--color-accent); }
+    .pkg-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      max-width: 50ch;
+      margin: 0 auto var(--s6);
+      line-height: 1.65;
+    }
+    .pkg-hero__meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--s5);
+      flex-wrap: wrap;
+    }
+    .pkg-hero__meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+    .pkg-hero__meta-item svg { color: var(--color-success); flex-shrink: 0; }
+
+    /* ── HOW TO CHOOSE STRIP ─────────────────────────────────── */
+    .how-to-choose {
+      padding: var(--s5) 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--s10);
+    }
+    .how-to-choose__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--s5);
+      flex-wrap: wrap;
+    }
+    .how-to-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+    .how-to-step__num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+    .how-to-step__arrow {
+      font-size: 18px;
+      color: var(--color-border);
+      padding: 0 var(--s1);
+    }
+
+    /* ── TIER SECTIONS ───────────────────────────────────────── */
+    .tier-section {
+      padding-top: var(--s10);
+      padding-bottom: var(--s12);
+    }
+    .tier-section + .tier-section {
+      border-top: 1px solid var(--color-border-faint);
+    }
+
+    .tier-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--s4);
+      flex-wrap: wrap;
+      margin-bottom: var(--s8);
+      padding-bottom: var(--s5);
+      border-bottom: 1px solid var(--color-border-faint);
+    }
+    .tier-header__left { flex: 1; min-width: 260px; }
+
+    .tier-badge {
+      display: inline-block;
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: var(--s2);
+    }
+    .tier-badge--classic  { background: var(--color-accent-dim); color: var(--color-accent); }
+    .tier-badge--hamper   { background: rgba(245,158,11,.12);    color: #F59E0B; }
+    .tier-badge--premium  { background: rgba(212,175,55,.12);    color: #D4AF37; }
+
+    .tier-title {
+      font-size: var(--text-section);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.02em;
+      line-height: var(--lh-section);
+      color: var(--color-text-primary);
+      margin-bottom: 6px;
+    }
+    .tier-subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      max-width: 50ch;
+      line-height: 1.65;
+    }
+    .tier-price-block { text-align: right; flex-shrink: 0; }
+    .tier-price-block__amount {
+      font-size: 42px;
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+      line-height: 1;
+    }
+    .tier-price-block__per {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: 5px;
+    }
+    .tier-price-block__min {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    /* ── OPTION CARDS GRID ───────────────────────────────────── */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--s4);
+    }
+
+    .option-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--ease-md), transform var(--ease-md);
+    }
+    .option-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+    .option-card--hamper:hover  { border-color: #F59E0B; }
+    .option-card--premium:hover { border-color: #D4AF37; }
+
+    /* Card image */
+    .option-card__img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: var(--color-surface-raised);
+    }
+    .option-card__img-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      letter-spacing: 0;
+    }
+    .option-card__img-fallback--classic  { background: linear-gradient(135deg, #1a2a4a, #0f1a2e); }
+    .option-card__img-fallback--hamper   { background: linear-gradient(135deg, #2a1e0a, #1a1205); }
+    .option-card__img-fallback--premium  { background: linear-gradient(135deg, #2a2200, #1a1600); }
+    .option-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 400ms ease;
+    }
+    .option-card:hover .option-card__img { transform: scale(1.04); }
+
+    /* Card body */
+    .option-card__body {
+      padding: var(--s4);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0;
+    }
+    .option-card__name {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.01em;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+    .option-card__tagline {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-bottom: var(--s3);
+      line-height: 1.5;
+    }
+
+    /* Item list */
+    .option-card__items {
+      list-style: none;
+      margin-bottom: var(--s4);
+      flex: 1;
+    }
+    .option-card__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--color-border-faint);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.45;
+    }
+    .option-card__item:last-child { border-bottom: none; }
+    .option-card__item svg { flex-shrink: 0; margin-top: 2px; color: var(--color-success); }
+    .option-card__item strong { color: var(--color-text-primary); font-weight: var(--weight-medium); }
+
+    /* CTA */
+    .option-card__cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background var(--ease), opacity var(--ease);
+    }
+    .option-card__cta--classic {
+      background: var(--color-accent);
+      color: #fff;
+    }
+    .option-card__cta--classic:hover { background: var(--color-accent-hover); }
+    .option-card__cta--hamper {
+      background: #F59E0B;
+      color: #0F1117;
+    }
+    .option-card__cta--hamper:hover { opacity: 0.88; }
+    .option-card__cta--premium {
+      background: #D4AF37;
+      color: #0F1117;
+    }
+    .option-card__cta--premium:hover { opacity: 0.88; }
+
+    /* ── HOW IT WORKS ────────────────────────────────────────── */
+    .how-strip {
+      padding-top: var(--s10);
+      padding-bottom: var(--s10);
+      background-color: var(--color-surface);
+      border-top: 1px solid var(--color-border-faint);
+    }
+    .how-strip__title {
+      font-size: var(--text-section);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.02em;
+      text-align: center;
+      color: var(--color-text-primary);
+      margin-bottom: var(--s8);
+    }
+    .how-strip__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s4);
+    }
+    .how-step { text-align: center; }
+    .how-step__num {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid var(--color-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: var(--text-sm); font-weight: var(--weight-bold);
+      color: var(--color-accent); margin: 0 auto var(--s2);
+    }
+    .how-step__name { font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--color-text-primary); margin-bottom: 6px; }
+    .how-step__desc { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.6; }
+
+    /* ── CTA BAND ────────────────────────────────────────────── */
+    .cta-band { padding-top: var(--s10); padding-bottom: var(--s10); text-align: center; }
+    .cta-band__title { font-size: var(--text-hero-sub); font-weight: var(--weight-bold); letter-spacing: -0.03em; color: var(--color-text-primary); margin-bottom: var(--s3); }
+    .cta-band__sub { font-size: var(--text-lg); color: var(--color-text-secondary); max-width: 50ch; margin: 0 auto var(--s5); line-height: 1.6; }
+    .cta-band__note { margin-top: var(--s3); font-size: var(--text-xs); color: var(--color-text-muted); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .options-grid { grid-template-columns: 1fr 1fr; }
+      .tier-header { flex-direction: column; align-items: flex-start; }
+      .tier-price-block { text-align: left; }
+      .how-strip__grid { grid-template-columns: 1fr 1fr; gap: var(--s5); }
+    }
+    @media (max-width: 580px) {
+      .options-grid { grid-template-columns: 1fr; }
+      .how-strip__grid { grid-template-columns: 1fr; }
+      .how-to-choose__inner { flex-direction: column; align-items: flex-start; gap: var(--s2); }
+      .how-to-step__arrow { display: none; }
+      .pkg-hero__meta { flex-direction: column; gap: var(--s2); align-items: flex-start; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- DIWALI BANNER -->
+  <div class="diwali-banner" role="banner">
+    <div class="container">
+      <div class="diwali-banner__inner">
+        <span class="diwali-banner__text">🪔 Diwali 2026 — 5 pilot slots open for Bengaluru companies</span>
+        <span class="diwali-banner__dot" aria-hidden="true"></span>
+        <a href="contact.html" class="diwali-banner__link">Reserve your slot →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="Gift-it home">Gift<span>-it</span></a>
+        <nav aria-label="Primary">
+          <ul class="nav__links" role="list">
+            <li><a href="packages.html" class="nav__link is-active">Packages</a></li>
+            <li><a href="pricing.html"  class="nav__link">Pricing</a></li>
+            <li><a href="about.html"    class="nav__link">About</a></li>
+            <li><a href="contact.html"  class="nav__link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__actions">
+          
+          <a href="contact.html" class="btn btn--primary">Plan Diwali gifting</a>
+          <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobile-nav" role="navigation" aria-label="Mobile">
+      <a href="packages.html" class="nav__link">Packages</a>
+      <a href="pricing.html"  class="nav__link">Pricing</a>
+      <a href="about.html"    class="nav__link">About</a>
+      <a href="contact.html"  class="nav__link">Contact</a>
+      <div class="nav__mobile-actions">
+        
+        <a href="contact.html" class="btn btn--primary" style="width:100%; justify-content:center;">Plan Diwali gifting</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO ═════════════════════════════════════════════════ -->
+    <section class="pkg-hero">
+      <div class="container">
+        <p class="pkg-hero__kicker">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1L10.06 5.17L14.66 5.84L11.33 9.08L12.13 13.67L8 11.5L3.87 13.67L4.67 9.08L1.34 5.84L5.94 5.17L8 1Z"/></svg>
+          Diwali 2026 Packages
+        </p>
+        <h1 class="pkg-hero__title">Pick a tier. <em>Pick a theme.</em><br>We handle everything else.</h1>
+        <p class="pkg-hero__sub">
+          Three tiers. Eleven themed options. Every option is curated — not assembled.
+          Choose what fits your team's culture.
+        </p>
+        <div class="pkg-hero__meta">
+          <span class="pkg-hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Min. 50 employees per order
+          </span>
+          <span class="pkg-hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Delivery by 19 Oct 2026
+          </span>
+          <span class="pkg-hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            No setup fee · no integration needed
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- How-to-choose strip -->
+    <div class="how-to-choose">
+      <div class="container">
+        <div class="how-to-choose__inner">
+          <div class="how-to-step">
+            <div class="how-to-step__num">1</div>
+            <span>Pick a budget tier below</span>
+          </div>
+          <span class="how-to-step__arrow" aria-hidden="true">→</span>
+          <div class="how-to-step">
+            <div class="how-to-step__num">2</div>
+            <span>Choose a themed option</span>
+          </div>
+          <span class="how-to-step__arrow" aria-hidden="true">→</span>
+          <div class="how-to-step">
+            <div class="how-to-step__num">3</div>
+            <span>Click "Get a quote" — we confirm in 24 hrs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ CLASSIC TIER ══════════════════════════════════════════ -->
+    <section class="tier-section" id="classic">
+      <div class="container">
+        <div class="tier-header">
+          <div class="tier-header__left">
+            <span class="tier-badge tier-badge--classic">Classic</span>
+            <h2 class="tier-title">Diwali, done right.</h2>
+            <p class="tier-subtitle">
+              Sweet box as the heart, one curated add-on for character.
+              Best for large headcounts where you need quality at scale.
+            </p>
+          </div>
+          <div class="tier-price-block">
+            <div class="tier-price-block__amount">₹1,499</div>
+            <div class="tier-price-block__per">per employee</div>
+            <div class="tier-price-block__min">same price across all 3 options below</div>
+          </div>
+        </div>
+
+        <div class="options-grid">
+
+          <!-- Classic A: Traditional Diwali -->
+          <article class="option-card">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--classic" aria-hidden="true">🪔</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — Diwali clay diyas lit in a warm golden arrangement"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Traditional Diwali</h3>
+              <p class="option-card__tagline">The complete Diwali moment — sweets, light, ritual.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>500g assorted mithai</strong> — Belagavi kunda, Mysore pak, kaju katli</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>4 handmade clay diyas</strong> — kiln-fired, Bengaluru artisan-sourced</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Branded kraft gift box</strong> + personalised Diwali card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Classic&option=Traditional+Diwali" class="option-card__cta option-card__cta--classic">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+          <!-- Classic B: Artisan Classic -->
+          <article class="option-card">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--classic" aria-hidden="true">🍫</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — artisanal dark chocolate pieces on a textured dark surface"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Artisan Classic</h3>
+              <p class="option-card__tagline">Traditional Indian sweets + single-origin Indian chocolate.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>500g assorted mithai</strong> — Belagavi kunda, Mysore pak, kaju katli</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Artisanal chocolate bar, 40g</strong> — single-origin Indian cacao</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Branded kraft gift box</strong> + personalised Diwali card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Classic&option=Artisan+Classic" class="option-card__cta option-card__cta--classic">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+          <!-- Classic C: Herbal Classic -->
+          <article class="option-card">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--classic" aria-hidden="true">🍵</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — herbal tea in a glass cup with dried herbs and flowers on a wooden surface"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Herbal Classic</h3>
+              <p class="option-card__tagline">Mithai + premium Indian herbal tea — for wellness-forward teams.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>500g assorted mithai</strong> — Belagavi kunda, Mysore pak, kaju katli</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Herbal tea sampler, 5 sachets</strong> — Vahdam Teas, Indian-grown</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Branded kraft gift box</strong> + personalised Diwali card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Classic&option=Herbal+Classic" class="option-card__cta option-card__cta--classic">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /options-grid -->
+      </div>
+    </section>
+
+    <!-- ══ HAMPER TIER ═══════════════════════════════════════════ -->
+    <section class="tier-section" id="hamper">
+      <div class="container">
+        <div class="tier-header">
+          <div class="tier-header__left">
+            <span class="tier-badge tier-badge--hamper">Hamper</span>
+            <h2 class="tier-title">More inside. More remembered.</h2>
+            <p class="tier-subtitle">
+              Mithai and dry fruits as the base. One curated add-on gives
+              the hamper its personality. The one most HR teams choose.
+            </p>
+          </div>
+          <div class="tier-price-block">
+            <div class="tier-price-block__amount" style="color:#F59E0B;">₹1,999</div>
+            <div class="tier-price-block__per">per employee</div>
+            <div class="tier-price-block__min">same price across all 4 options below</div>
+          </div>
+        </div>
+
+        <div class="options-grid">
+
+          <!-- Hamper A: Traditional -->
+          <article class="option-card option-card--hamper">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--hamper" aria-hidden="true">🎁</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — festive gift hamper with sweets and dry fruits in a wicker basket"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Traditional Hamper</h3>
+              <p class="option-card__tagline">Sweets, dry fruits, and diyas — the full Diwali complement.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>500g assorted mithai</strong> — local halwai-sourced</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>250g premium dry fruits</strong> — cashews, almonds, raisins</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>4 handmade clay diyas</strong> — artisan kiln-fired</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Rigid gift box</strong> + branded card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Hamper&option=Traditional+Hamper" class="option-card__cta option-card__cta--hamper">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+          <!-- Hamper B: Gourmet -->
+          <article class="option-card option-card--hamper">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--hamper" aria-hidden="true">🍫</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1481391032119-d89fee407e44?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — artisanal chocolate box with premium chocolates neatly arranged"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Gourmet Hamper</h3>
+              <p class="option-card__tagline">Mithai meets artisanal chocolate — a pairing no standard vendor offers.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>500g assorted mithai</strong> — local halwai-sourced</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>250g premium dry fruits</strong> — cashews, almonds, raisins</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Artisanal chocolate box, 70g</strong> — single-origin Indian cacao</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Rigid gift box</strong> + branded card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Hamper&option=Gourmet+Hamper" class="option-card__cta option-card__cta--hamper">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+          <!-- Hamper C: Wellness -->
+          <article class="option-card option-card--hamper">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--hamper" aria-hidden="true">🌿</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1573461160327-fc71a0e0a7a6?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — handmade natural soap bars with botanical ingredients on wood"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Wellness Hamper</h3>
+              <p class="option-card__tagline">For companies that gift with care — soap signals genuine thoughtfulness.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>500g assorted mithai</strong> — local halwai-sourced</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>250g premium dry fruits</strong> — cashews, almonds, raisins</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Handmade soap bar, 100g</strong> — natural Indian artisan brand</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Rigid gift box</strong> + branded card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Hamper&option=Wellness+Hamper" class="option-card__cta option-card__cta--hamper">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+          <!-- Hamper D: Aromatic -->
+          <article class="option-card option-card--hamper">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--hamper" aria-hidden="true">🕯️</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1602178506570-5c46abb0f1e1?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — a lit soy candle in a glass jar with warm ambient light"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Aromatic Hamper</h3>
+              <p class="option-card__tagline">Fragrance-led — incense and candle make unboxing an experience.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>500g assorted mithai</strong> + <strong>250g dry fruits</strong></span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Premium incense sticks, 25-stick pack</strong> — sandalwood or rose</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Hand-poured soy candle, 50g</strong> — Indian artisan brand</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Rigid gift box</strong> + branded card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Hamper&option=Aromatic+Hamper" class="option-card__cta option-card__cta--hamper">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /options-grid -->
+      </div>
+    </section>
+
+    <!-- ══ PREMIUM TIER ══════════════════════════════════════════ -->
+    <section class="tier-section" id="premium">
+      <div class="container">
+        <div class="tier-header">
+          <div class="tier-header__left">
+            <span class="tier-badge tier-badge--premium">Premium</span>
+            <h2 class="tier-title">For the gift that stays.</h2>
+            <p class="tier-subtitle">
+              Premium mithai, premium dry fruits, and a curated add-on chosen for lasting quality.
+              For leadership teams, key accounts, or any employee who deserves the best.
+            </p>
+          </div>
+          <div class="tier-price-block">
+            <div class="tier-price-block__amount" style="color:#D4AF37;">₹2,999</div>
+            <div class="tier-price-block__per">per employee</div>
+            <div class="tier-price-block__min">same price across all 4 options below</div>
+          </div>
+        </div>
+
+        <div class="options-grid">
+
+          <!-- Premium A: Royal Diwali -->
+          <article class="option-card option-card--premium">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--premium" aria-hidden="true">🏺</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — luxury gift box tied with a gold ribbon against a warm background"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Royal Diwali</h3>
+              <p class="option-card__tagline">Heritage + abundance — a brass diya pair that becomes a keepsake.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>1kg premium mithai</strong> — kaju katli, badam ladoo, motichoor</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>350g premium dry fruits</strong> — cashews, pistachios, almonds</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Brass diya pair</strong> — Chikpete-sourced, keeps as décor</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Fabric-wrapped box</strong>, gold ribbon + wax seal + card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Premium&option=Royal+Diwali" class="option-card__cta option-card__cta--premium">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+          <!-- Premium B: Heritage Collection -->
+          <article class="option-card option-card--premium">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--premium" aria-hidden="true">🎁</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1519642918688-7e43b19245d8?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — premium chocolate assortment in an elegant dark gift box"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Heritage Collection</h3>
+              <p class="option-card__tagline">Curated for taste — mithai and single-origin chocolate, elegantly paired.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>1kg premium mithai</strong> — kaju katli, badam ladoo, motichoor</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>300g premium dry fruits</strong> — cashews, pistachios, almonds</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Artisanal chocolate box, 100g</strong> — single-origin Indian cacao</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Premium rigid box</strong>, gold ribbon + branded card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Premium&option=Heritage+Collection" class="option-card__cta option-card__cta--premium">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+          <!-- Premium C: Luxury Wellness -->
+          <article class="option-card option-card--premium">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--premium" aria-hidden="true">🌿</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — luxury bath and spa products arranged on a marble surface"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Luxury Wellness</h3>
+              <p class="option-card__tagline">For people-first companies — soap and candle signal that you genuinely care.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>800g premium mithai</strong> + <strong>300g premium dry fruits</strong></span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Natural soap bar, 100g</strong> — Forest Essentials or Kama Ayurveda</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Hand-poured scented candle, 80g</strong> — Indian artisan brand</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Fabric-wrapped box</strong>, gold ribbon + wax seal + card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Premium&option=Luxury+Wellness" class="option-card__cta option-card__cta--premium">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+          <!-- Premium D: Signature Fragrance -->
+          <article class="option-card option-card--premium">
+            <div class="option-card__img-wrap">
+              <div class="option-card__img-fallback option-card__img-fallback--premium" aria-hidden="true">🌸</div>
+              <img class="option-card__img"
+                src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=700&q=80&auto=format&fit=crop"
+                alt="Decorative — small perfume bottle and dried florals on a warm-toned background"
+                loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="option-card__body">
+              <h3 class="option-card__name">Signature Fragrance</h3>
+              <p class="option-card__tagline">Attar and incense — a memory anchor that outlasts Diwali.</p>
+              <ul class="option-card__items">
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>1kg premium mithai</strong> + <strong>350g premium dry fruits</strong></span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Natural attar, 3ml</strong> — traditional Indian fragrance</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Premium incense set</strong> — sandalwood + rose, 25 sticks each</span>
+                </li>
+                <li class="option-card__item">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span><strong>Fabric-wrapped box</strong>, gold ribbon + wax seal + card</span>
+                </li>
+              </ul>
+              <a href="contact.html?package=Premium&option=Signature+Fragrance" class="option-card__cta option-card__cta--premium">
+                Get a quote for this →
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /options-grid -->
+      </div>
+    </section>
+
+    <!-- ══ HOW IT WORKS ══════════════════════════════════════════ -->
+    <section class="how-strip">
+      <div class="container">
+        <h2 class="how-strip__title">What happens after you pick</h2>
+        <div class="how-strip__grid">
+          <div class="how-step">
+            <div class="how-step__num">1</div>
+            <p class="how-step__name">You send your employee list</p>
+            <p class="how-step__desc">A spreadsheet of names and delivery addresses. No app, no integration.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__num">2</div>
+            <p class="how-step__name">We source and pack</p>
+            <p class="how-step__desc">Every item quality-checked, assembled with your branding in 72 hours.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__num">3</div>
+            <p class="how-step__name">Individual delivery</p>
+            <p class="how-step__desc">Each employee receives their gift at their address. Tracking link shared with you.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__num">4</div>
+            <p class="how-step__name">Delivered before Diwali</p>
+            <p class="how-step__desc">Guaranteed delivery by 19 Oct 2026 for orders confirmed by 5 Oct.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BAND ══════════════════════════════════════════════ -->
+    <section class="cta-band">
+      <div class="container">
+        <h2 class="cta-band__title">5 slots left. Closes 5 Oct.</h2>
+        <p class="cta-band__sub">
+          Not sure which option fits your team? Tell us your headcount and culture —
+          we'll suggest the right one in one message.
+        </p>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn--primary" style="font-size:16px; padding:14px 28px;">Get a Diwali quote →</a>
+          <a href="pricing.html" class="btn btn--ghost"   style="font-size:16px; padding:14px 28px;">See pricing</a>
+        </div>
+        <p class="cta-band__note">No commitment until you confirm. We respond within one business day.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Gift<span>-it</span></p>
+          <p class="footer__brand-desc">Corporate gifting built for India — curated, on-brand, delivered.</p>
+        </div>
+        <div>
+          <p class="footer__col-label">Packages</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="packages.html#classic"  class="footer__link">Classic — ₹1,499</a></li>
+            <li><a href="packages.html#hamper"   class="footer__link">Hamper — ₹1,999</a></li>
+            <li><a href="packages.html#premium"  class="footer__link">Premium — ₹2,999</a></li>
+            <li><a href="pricing.html"           class="footer__link">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-label">Company</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="about.html"   class="footer__link">About Us</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-label">Get started</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="contact.html" class="footer__link">Get a quote</a></li>
+            <li><a href="contact.html" class="footer__link">WhatsApp us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Gift-it Technologies Pvt. Ltd. · Bengaluru, India</p>
+        <nav aria-label="Legal">
+          <ul class="footer__legal" role="list">
+            <li><a href="#" class="footer__legal-link">Privacy</a></li>
+            <li><a href="#" class="footer__legal-link">Terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FAB -->
+  <a href="https://wa.me/917090781972?text=Hi%2C+I%27d+like+to+know+more+about+Diwali+gifting+packages"
+     class="whatsapp-fab" target="_blank" rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    /* ── NAV HAMBURGER ─────────────────────────────────────────── */
+    var hamburger = document.getElementById('hamburger');
+    var mobileNav = document.getElementById('mobile-nav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', function() {
+        var isOpen = mobileNav.classList.toggle('is-open');
+        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+::ffff:127.0.0.1 - - [25/Sep/2026 03:51:18] "GET /classic-box.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:51:18] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:51:19] "GET /classic-box.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:51:19] code 404, message File not found
+::ffff:127.0.0.1 - - [25/Sep/2026 03:51:19] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:51:46] "GET /pricing.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:51:49] "GET /classic-box.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:52:04] "GET /premium-box.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:52:14] "GET /diwali-hamper.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:52:22] "GET /classic-box.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:55:27] "GET /classic-box.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:55:27] "GET /style.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:55:34] "GET /premium-box.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:55:38] "GET /about.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:25] "GET /about.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:30] "GET /about.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:30] "GET /about.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:30] "GET /about.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:31] "GET /about.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:31] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:31] code 404, message File not found
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:31] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:32] "GET /about.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:32] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:32] code 404, message File not found
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:32] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:33] "GET /about.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:33] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:33] "GET /about.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:33] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:33] code 404, message File not found
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:33] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:45] "GET /about.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:45] "GET /style.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:45] code 404, message File not found
+::ffff:127.0.0.1 - - [25/Sep/2026 03:56:45] "GET /favicon.ico HTTP/1.1" 404 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:59:03] "GET /about.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 03:59:03] "GET /style.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 04:00:36] "GET /pricing.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 04:00:39] "GET /classic-box.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 04:00:43] "GET /diwali-hamper.html HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [25/Sep/2026 04:03:32] "GET /classic-box.html HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 04:03:32] "GET /style.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [25/Sep/2026 04:06:44] "GET /classic-box.html HTTP/1.1" 200 -

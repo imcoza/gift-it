@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift-it — Contact Us & Talk to Sales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* LAYOUT ----------------------------------------------------- */
+    .contact-layout {
+      padding-top: var(--s12);
+      padding-bottom: var(--s15);
+    }
+
+    .contact-layout__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s10);
+      align-items: start;
+    }
+
+    /* LEFT: COPY & INFO ------------------------------------------ */
+    .contact-info__title {
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.03em;
+      line-height: var(--lh-display);
+      color: var(--color-text-primary);
+      margin-bottom: var(--s3);
+    }
+
+    .contact-info__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      max-width: 48ch;
+      line-height: 1.6;
+      margin-bottom: var(--s6);
+    }
+
+    .contact-detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s4);
+      margin-bottom: var(--s6);
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s2);
+    }
+
+    .contact-detail__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .contact-detail__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 3px;
+    }
+
+    .contact-detail__value {
+      font-size: var(--text-sm);
+      color: var(--color-text-primary);
+      font-weight: var(--weight-medium);
+    }
+
+    /* Offices */
+    .offices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s2);
+    }
+
+    .office-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--s3);
+    }
+
+    .office-card__city {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+
+    .office-card__address {
+      font-size: var(--text-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* What to expect */
+    .expectations {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s4);
+      margin-top: var(--s5);
+    }
+
+    .expectations__title {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--s3);
+    }
+
+    .expectations__list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .expect-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+
+    .expect-item svg { color: var(--color-accent); flex-shrink: 0; }
+
+    /* RIGHT: FORM ----------------------------------------------- */
+    .contact-form-wrap {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--s6);
+    }
+
+    .contact-form__title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.018em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--s1);
+    }
+
+    .contact-form__sub {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--s5);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s3);
+    }
+
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+    }
+
+    .form-submit-row {
+      margin-top: var(--s5);
+    }
+
+    .form-submit-note {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--s2);
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--s8) var(--s4);
+    }
+
+    .form-success__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: var(--color-accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--s3);
+      color: var(--color-accent);
+    }
+
+    .form-success__title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--s2);
+    }
+
+    .form-success__sub {
+      font-size: var(--text-md);
+      color: var(--color-text-secondary);
+    }
+
+    /* FAQ -------------------------------------------------------- */
+    .faq {
+      padding: var(--s15) 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .faq__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s3);
+      margin-top: var(--s8);
+    }
+
+    .faq-item {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .faq-item__question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--s4);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      text-align: left;
+      transition: color var(--ease);
+      gap: var(--s2);
+    }
+
+    .faq-item__question:hover { color: var(--color-accent); }
+
+    .faq-item__chevron {
+      flex-shrink: 0;
+      color: var(--color-text-muted);
+      transition: transform var(--ease-md);
+    }
+
+    .faq-item.is-open .faq-item__chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-item__answer {
+      display: none;
+      padding: 0 var(--s4) var(--s4);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+
+    .faq-item.is-open .faq-item__answer { display: block; }
+
+    /* RESPONSIVE ------------------------------------------------- */
+    @media (max-width: 860px) {
+      .contact-layout__inner { grid-template-columns: 1fr; gap: var(--s6); }
+      .faq__grid { grid-template-columns: 1fr; }
+      .offices { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: var(--s4); }
+    }
+
+
+    /* FORM FIELDS ------------------------------------------------ */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.04em;
+      color: var(--color-text-secondary);
+    }
+    .field__input,
+    .field__select,
+    .field__textarea {
+      width: 100%;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 10px var(--s2);
+      font-size: var(--text-sm);
+      color: var(--color-text-primary);
+      transition: border-color var(--ease);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .field__input:focus,
+    .field__select:focus,
+    .field__textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+    .field__textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: var(--lh-body);
+    }
+    .field__select {
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%235A6478' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DIWALI BANNER -->
+  <div style="background-color: var(--color-accent); padding: 10px 0; text-align: center;">
+    <div class="container">
+      <p style="font-size: var(--text-xs); font-weight: 600; color: #fff; letter-spacing: 0.01em;">
+        Diwali 2026 · We respond within 4 hours
+      </p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Gift<span>-it</span></a>
+        <nav aria-label="Primary">
+          <ul class="nav__links" role="list">
+            <li><a href="pricing.html" class="nav__link">Packages</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+            <li><a href="contact.html" class="nav__link is-active">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__actions">
+          
+          <a href="contact.html" class="btn btn--primary">Plan Diwali gifting</a>
+          <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobile-nav">
+      <a href="pricing.html" class="nav__link">Packages</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <div class="nav__mobile-actions">
+        
+        <a href="pricing.html" class="btn btn--primary btn--full">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- CONTACT FORM + INFO -->
+    <section class="contact-layout" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-layout__inner">
+
+          <!-- LEFT: INFO -->
+          <div>
+            <span class="eyebrow" aria-hidden="true">Diwali 2026 · Pilot program</span>
+            <h1 class="contact-info__title" id="contact-heading">Plan your Diwali gifting</h1>
+            <p class="contact-info__sub">Fill in the form and we'll send you a full quote within 4 hours. No payment until you approve.</p>
+
+            <div class="contact-detail-list">
+              <div class="contact-detail">
+                <span class="contact-detail__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <div>
+                  <p class="contact-detail__label">Email</p>
+                  <p class="contact-detail__value">giftyit@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-detail__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.89 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.82 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.82-1.82a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <div>
+                  <p class="contact-detail__label">Phone (India)</p>
+                  <p class="contact-detail__value"><a href="tel:+917090781972" style="color:inherit;">+91 70 9078 1972</a></p>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-detail__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <div>
+                  <p class="contact-detail__label">Response time</p>
+                  <p class="contact-detail__value">Within 4 business hours · Mon–Fri 9am–7pm IST</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="offices" aria-label="Based in">
+              <div class="office-card">
+                <p class="office-card__city">Bengaluru (HQ)</p>
+                <p class="office-card__address">Koramangala, Bengaluru<br>Karnataka, India</p>
+              </div>
+            </div>
+
+            <div class="expectations">
+              <p class="expectations__title">What happens after you submit</p>
+              <div class="expectations__list">
+                <div class="expect-item">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  We respond within <strong>4 business hours</strong> — same day for Diwali campaigns
+                </div>
+                <div class="expect-item">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  A full campaign quote in INR — sent within 24 hours, no payment required
+                </div>
+                <div class="expect-item">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  We send you an employee list template — you share names and addresses
+                </div>
+                <div class="expect-item">
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Gift-it handles sourcing, packaging, delivery tracking — you do nothing else
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: var(--s4); padding: var(--s3) var(--s4); background: var(--color-accent-dim); border: 1px solid var(--color-accent); border-radius: var(--radius-md);">
+              <p style="font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 4px;">Diwali delivery guarantee</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: FORM -->
+          <div class="contact-form-wrap">
+
+            <!-- PRE-FILL BANNER — shown only when user arrives from pricing page with a selection -->
+            <div id="selection-banner" style="display:none; margin-bottom: var(--s4); background: var(--color-accent-dim); border: 1px solid var(--color-accent); border-radius: var(--radius-lg); padding: 14px 18px;">
+              <p style="font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 4px;">Your selection from pricing →</p>
+              <p id="banner-tier-label" style="font-size: var(--text-sm); font-weight: 600; color: var(--color-text-primary); margin-bottom: 2px;"></p>
+              <p id="banner-option-label" style="font-size: var(--text-sm); color: var(--color-text-secondary);"></p>
+              <p style="font-size: 10px; color: var(--color-text-muted); margin-top: 6px; font-style: italic;">Budget and gift option pre-filled below · you can change anything before submitting.</p>
+            </div>
+
+            <form id="contact-form" novalidate aria-label="Diwali campaign intake form">
+              <h2 class="contact-form__title">Plan your Diwali campaign</h2>
+              <p class="contact-form__sub">Takes 2 minutes. We'll send a quote within 4 hours — same day for urgent Diwali timelines.</p>
+
+              <div class="form-fields">
+
+                <div class="form-row">
+                  <div class="field">
+                    <label class="field__label" for="first-name">Your name</label>
+                    <input class="field__input" type="text" id="first-name" name="first_name" placeholder="Your name" autocomplete="given-name" required>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="role">Your role</label>
+                    <select class="field__select" id="role" name="role" required>
+                      <option value="" disabled selected>Select role</option>
+                      <option value="founder">Founder / Co-founder</option>
+                      <option value="hr_head">HR Head / VP People</option>
+                      <option value="hr_manager">HR Manager / Executive</option>
+                      <option value="admin">Admin / Office Manager</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label class="field__label" for="work-email">Work email</label>
+                    <input class="field__input" type="email" id="work-email" name="email" placeholder="you@company.in" autocomplete="email" required>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="whatsapp">WhatsApp number</label>
+                    <input class="field__input" type="tel" id="whatsapp" name="whatsapp" placeholder="+91 98765 43210" autocomplete="tel">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label class="field__label" for="company">Company name</label>
+                    <input class="field__input" type="text" id="company" name="company" placeholder="Your company" required>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="employee-count">Employees to gift</label>
+                    <select class="field__select" id="employee-count" name="employee_count" required>
+                      <option value="" disabled selected>Select range</option>
+                      <option value="under-50">Under 50 employees</option>
+                      <option value="50-150">50–150 employees</option>
+                      <option value="150-300">150–300 employees</option>
+                      <option value="300-500">300–500 employees</option>
+                      <option value="500-1000">500–1,000 employees</option>
+                      <option value="1000+">1,000+ employees</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label class="field__label" for="budget">Budget per employee</label>
+                    <select class="field__select" id="budget" name="budget_per_head" required>
+                      <option value="" disabled selected>Select budget</option>
+                      <option value="1499">₹1,499 — Classic Box (500g mithai + kraft box)</option>
+                      <option value="2999">₹2,999 — Diwali Hamper (500g mithai + 250g dry fruits)</option>
+                      <option value="4999">₹4,999 — Premium Hamper (750g mithai + 400g dry fruits + saffron)</option>
+                      <option value="9999">₹9,999 — Luxury Gift Box (1kg mithai + 600g dry fruits + saffron + honey)</option>
+                      <option value="flexible">Not sure yet — show me options</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="delivery-city">Primary delivery city</label>
+                    <select class="field__select" id="delivery-city" name="delivery_city" required>
+                      <option value="" disabled selected>Select city</option>
+                      <option value="bengaluru">Bengaluru</option>
+                      <option value="mumbai">Mumbai</option>
+                      <option value="delhi-ncr">Delhi NCR</option>
+                      <option value="hyderabad">Hyderabad</option>
+                      <option value="pune">Pune</option>
+                      <option value="chennai">Chennai</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="delivery-date">When do you need gifts delivered by?</label>
+                  <select class="field__select" id="delivery-date" name="delivery_date">
+                    <option value="" disabled selected>Select target date</option>
+                    <option value="oct-15">Before October 15</option>
+                    <option value="oct-19">Before October 19 (day before Diwali)</option>
+                    <option value="post-diwali">After Diwali — for another occasion</option>
+                  </select>
+                </div>
+
+                <!-- Gift option selection — hidden by default, shown + pre-filled when coming from pricing page -->
+                <div class="field" id="gift-option-field" style="display:none;">
+                  <label class="field__label" for="gift-option">Gift option selected</label>
+                  <input class="field__input" type="text" id="gift-option" name="gift_option"
+                         readonly
+                         style="background: var(--color-surface-alt); color: var(--color-text-primary); cursor: default;"
+                         placeholder="e.g. Artisanal Diwali hamper">
+                  <p style="font-size: 10px; color: var(--color-text-muted); margin-top: 4px;">From your selection on the pricing page · we'll confirm before ordering.</p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="message">Anything else we should know? <span style="color: var(--color-text-muted); font-weight: 400;">(optional)</span></label>
+                  <textarea class="field__textarea" id="message" name="message" placeholder="e.g. We have 3 offices in Bengaluru and need separate deliveries. Our HR team wants branded packaging with our logo…"></textarea>
+                </div>
+
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn--primary btn--full btn--lg">Get my Diwali quote →</button>
+                <p class="form-submit-note">We respond within 4 hours · No spam · No payment until you approve · Data stored in India</p>
+              </div>
+
+            </form>
+
+            <div class="form-success" id="form-success" role="alert" aria-live="polite">
+              <div class="form-success__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <h3 class="form-success__title">You're in — we'll be in touch shortly</h3>
+              <p class="form-success__sub">Expect a quote in your inbox within 4 hours. Check WhatsApp too — we'll send a message there if you shared your number. Your Diwali campaign is in good hands.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <span class="eyebrow" aria-hidden="true">FAQ</span>
+        <h2 class="section-title" id="faq-heading">Common questions</h2>
+        <p class="section-sub">Quick answers to what teams ask us most before signing up.</p>
+
+        <div class="faq__grid" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Is there any cost to get a quote?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">No. Submitting the form and receiving a detailed quote is completely free. We send you a full cost breakdown — packages, quantities, and total — before you commit to anything. Payment only begins once you approve the quote and confirm the order.</div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Does Gift-it deliver across all of India?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">Yes. We deliver across India to all major metros and most Tier 2 and Tier 3 cities. Confirm your delivery locations when you submit the form and we'll verify serviceability before you commit.</div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Do I need to share individual employee addresses?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">Yes. Once you confirm the order, we'll send you a simple spreadsheet template. You fill in each employee's name, address, and phone number — that's all we need. No software setup, no integrations required. We handle everything from there.</div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              What exactly is in each package?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">Classic (₹1,499): 500g assorted mithai + branded kraft box. Diwali Hamper (₹1,999): 500g mithai + 250g mixed dry fruits (cashews, almonds, raisins) + premium rigid gift box. Premium (₹2,999): 1kg premium mithai + 400g premium dry fruits (cashews, almonds, pistachios, figs) + fabric-wrapped luxury box. All sourced at bulk rates — no filler items.</div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              How early should I plan a Diwali campaign?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">Submit your quote form early so we can confirm sourcing and lead times before you commit. We'll share expected delivery timelines in your quote — no pressure to pay until you're happy with everything.</div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              How does payment work for Diwali campaigns?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">We collect 50% advance to source your gifts and lock delivery slots before the Diwali rush. The balance is due on confirmation of dispatch. For campaigns above ₹5 lakh, talk to us about credit terms. No payment is required to get a quote.</div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Can I get a branded box with our company logo?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">Yes, for orders above 100 units we can add custom branding — a printed insert card or branded ribbon. Mention it in the "Anything else" field and we'll include a quote for custom branding along with your campaign estimate.</div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Can I mix packages across different employee levels?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">Yes. Many companies send the Diwali Hamper (₹1,999) to the team and the Premium Box (₹2,999) to managers and leadership. We handle mixed orders and can deliver different packages to different employees from one order. Just let us know the split when you submit the form.</div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              What is the minimum order size?
+              <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-item__answer">Our minimum order is 20 units — bulk sourcing and packaging only makes sense at that scale. For larger campaigns (200+ units), we offer additional flexibility on packaging and delivery windows. Submit the form and we'll let you know what works for your team size.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Gift<span>-it</span></p>
+          <p class="footer__brand-desc">Diwali gifting for Indian companies — sourced, packaged, delivered.</p>
+        </div>
+        <div>
+          <p class="footer__col-label">Packages</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="classic-box.html" class="footer__link">Classic Box · ₹1,499</a></li>
+            <li><a href="diwali-hamper.html" class="footer__link">Diwali Hamper · ₹2,999</a></li>
+            <li><a href="premium-box.html" class="footer__link">Premium Hamper · ₹4,999</a></li>
+            <li><a href="luxury-box.html" class="footer__link">Luxury Gift Box · ₹9,999</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-label">Company</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-label">Get a quote</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="contact.html" class="footer__link">Submit order brief</a></li>
+            <li><a href="https://wa.me/917090781972" class="footer__link" target="_blank" rel="noopener">WhatsApp us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Gift-it Technologies Pvt. Ltd. · Bengaluru, India</p>
+        <nav aria-label="Legal"><ul class="footer__legal" role="list">
+          <li><a href="#" class="footer__legal-link">Privacy</a></li>
+          <li><a href="#" class="footer__legal-link">Terms</a></li>
+        </ul></nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/917090781972?text=Hi%2C%20I%20want%20to%20plan%20our%20Diwali%20gifting%20through%20Giftly"
+     style="position:fixed;bottom:28px;right:28px;z-index:200;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;"
+     target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    // ── PRE-FILL FROM PACKAGES / PRICING PAGE SELECTION ─────────
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+
+      // Support both param naming conventions:
+      // packages.html sends ?package=Classic&option=Traditional+Diwali
+      // pricing.html  sends ?tier=2000&optionName=...&budget=...
+      const pkgTier   = params.get('package');   // e.g. "Classic", "Hamper", "Premium"
+      const pkgOption = params.get('option');     // e.g. "Traditional Diwali"
+      const tier      = params.get('tier');       // legacy pricing param
+      const optionName= params.get('optionName'); // legacy pricing param
+      const budget    = params.get('budget');     // legacy pricing param
+
+      const hasPkg    = pkgTier || pkgOption;
+      const hasLegacy = tier || optionName;
+
+      if (!hasPkg && !hasLegacy) return; // nothing selected, skip
+
+      // Price map for packages page tiers
+      const pkgPriceMap = { 'Classic': '₹1,499', 'Hamper': '₹1,999', 'Premium': '₹2,999' };
+
+      // Compose display strings
+      const displayTier   = hasPkg
+        ? (pkgTier ? pkgTier + ' Package · ' + (pkgPriceMap[pkgTier] || '') + ' per employee' : '')
+        : (tier ? '₹' + tier + ' per employee' : '');
+
+      const displayOption = hasPkg
+        ? (pkgOption || '—')
+        : (optionName || '—');
+
+      // Show pre-fill banner
+      const banner = document.getElementById('selection-banner');
+      if (banner) {
+        banner.style.display = 'block';
+        const tierEl   = document.getElementById('banner-tier-label');
+        const optionEl = document.getElementById('banner-option-label');
+        if (tierEl && displayTier)   tierEl.textContent   = 'Package: ' + displayTier;
+        if (optionEl && displayOption) optionEl.textContent = 'Option: '  + displayOption;
+      }
+
+      // Pre-fill budget dropdown (legacy support)
+      if (budget) {
+        const budgetSel = document.getElementById('budget');
+        if (budgetSel) {
+          Array.from(budgetSel.options).forEach(opt => {
+            if (opt.value === budget) opt.selected = true;
+          });
+        }
+      }
+
+      // Auto-select budget dropdown for packages.html tier
+      if (pkgTier) {
+        const budgetSel = document.getElementById('budget');
+        if (budgetSel) {
+          const budgetValue = { 'Classic': '1499', 'Hamper': '1999', 'Premium': '2999' }[pkgTier];
+          Array.from(budgetSel.options).forEach(opt => {
+            if (opt.value === budgetValue) opt.selected = true;
+          });
+        }
+      }
+
+      // Show and pre-fill gift-option field
+      const chosenOption = pkgOption || optionName;
+      if (chosenOption) {
+        const giftField = document.getElementById('gift-option-field');
+        const giftInput = document.getElementById('gift-option');
+        if (giftField) giftField.style.display = 'block';
+        if (giftInput) giftInput.value = decodeURIComponent(chosenOption);
+      }
+
+      // Set delivery date to Diwali deadline if not already set
+      const dateSel = document.getElementById('delivery-date');
+      if (dateSel && !dateSel.value) {
+        const diwaliOpt = Array.from(dateSel.options).find(o => o.value === 'oct-10');
+        if (diwaliOpt) diwaliOpt.selected = true;
+      }
+    })();
+
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('is-open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item__question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const open = item.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+
+    // Contact form submit (demo)
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>

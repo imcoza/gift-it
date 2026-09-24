@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classic Diwali Box · ₹1,499 per employee — Gift-it</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pkg-hero {
+      padding-top: var(--s12);
+      padding-bottom: var(--s8);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .pkg-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-muted);
+      text-decoration: none;
+      margin-bottom: var(--s4);
+      letter-spacing: 0.02em;
+      transition: color var(--ease);
+    }
+    .pkg-hero__back:hover { color: var(--color-text-primary); }
+    .pkg-hero__eyebrow {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--s2);
+    }
+    .pkg-hero__title {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--color-text-primary);
+      margin-bottom: var(--s3);
+    }
+    .pkg-hero__price {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--s4);
+    }
+    .pkg-hero__price strong {
+      font-size: 32px;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+    }
+    .pkg-hero__pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s2);
+    }
+    .pkg-pill {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+
+    /* MAIN LAYOUT */
+    .pkg-body {
+      padding: var(--s10) 0 var(--s15);
+    }
+    .pkg-body__inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: var(--s10);
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .pkg-body__inner { grid-template-columns: 1fr; }
+    }
+
+    /* IMAGE */
+    .pkg-image {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: var(--s6);
+      height: 320px;
+      position: relative;
+      background: var(--color-surface-alt);
+    }
+    .pkg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .pkg-image__label {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      color: #fff;
+    }
+
+    /* CONTENTS */
+    .pkg-section-title {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.015em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--s4);
+    }
+    .pkg-items { display: flex; flex-direction: column; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: var(--s8); }
+    .pkg-item { display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: var(--s2); padding: 14px var(--s3); border-bottom: 1px solid var(--color-border-faint); background: var(--color-surface); transition: background var(--ease); }
+    .pkg-item:last-child { border-bottom: none; }
+    .pkg-item:hover { background: var(--color-surface-alt); }
+    .pkg-item__emoji { font-size: 22px; display: flex; align-items: center; justify-content: center; }
+    .pkg-item__body { min-width: 0; }
+    .pkg-item__name { font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--color-text-primary); line-height: 1.35; }
+    .pkg-item__tag { font-size: 11px; color: var(--color-text-muted); margin-top: 2px; display: block; }
+    .pkg-item__check { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-success); white-space: nowrap; flex-shrink: 0; }
+
+
+    /* OPTIONS ---------------------------------------------------- */
+    .options-section { margin-bottom: var(--s8); }
+
+    .options-section__intro {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      margin-bottom: var(--s5);
+      max-width: 54ch;
+    }
+
+    .options-section__note {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--s2) var(--s3);
+      margin-top: var(--s4);
+    }
+
+    .options-category { margin-bottom: var(--s5); }
+
+    .options-category__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--s2);
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s2);
+    }
+
+    .option-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s3);
+      position: relative;
+      transition: border-color var(--ease), background-color var(--ease);
+      cursor: pointer;
+      user-select: none;
+    }
+    .option-card:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+    .option-card:hover {
+      border-color: var(--color-accent);
+      background-color: var(--color-surface-raised);
+    }
+    .option-card--default {
+      border-color: var(--color-accent);
+      background-color: var(--color-accent-dim);
+    }
+    .option-card__img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      display: block;
+      margin-bottom: var(--s2);
+    }
+    .option-card__emoji { font-size: 20px; }
+    .option-card__name {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+    }
+    .option-card__sub {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+    .option-badge {
+      display: inline-block;
+      width: fit-content;
+      font-size: 10px;
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-dim);
+      border: 1px solid rgba(79,142,247,0.25);
+      border-radius: var(--radius-sm);
+      padding: 2px 6px;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 640px) {
+      .options-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* FAQ -------------------------------------------------------- */
+    .pkg-faq { margin-bottom: var(--s8); }
+    .pkg-faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--s3) 0;
+    }
+    .pkg-faq-item:first-child { border-top: 1px solid var(--color-border); }
+    .pkg-faq-q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--s3);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      text-align: left;
+      padding: var(--s1) 0;
+      cursor: pointer;
+      transition: color var(--ease);
+    }
+    .pkg-faq-q:hover { color: var(--color-accent); }
+    .pkg-faq-chevron { flex-shrink: 0; color: var(--color-text-muted); transition: transform var(--ease-md); }
+    .pkg-faq-item.is-open .pkg-faq-chevron { transform: rotate(180deg); }
+    .pkg-faq-a {
+      display: none;
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      padding-bottom: var(--s2);
+    }
+    .pkg-faq-item.is-open .pkg-faq-a { display: block; }
+
+    /* STICKY ORDER PANEL */
+    .order-panel {
+      position: sticky;
+      top: 100px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--s5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s4);
+    }
+    .order-panel__name {
+      font-size: var(--text-md);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+    }
+    .order-panel__price {
+      font-size: 36px;
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+      line-height: 1;
+    }
+    .order-panel__price span {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-muted);
+      letter-spacing: 0;
+    }
+    .order-panel__divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+    }
+    .order-panel__rows {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s2);
+    }
+    .order-panel__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--s2);
+      font-size: var(--text-xs);
+    }
+    .order-panel__row-label { color: var(--color-text-muted); }
+    .order-panel__row-value { color: var(--color-text-primary); font-weight: var(--weight-medium); text-align: right; }
+    .order-panel__note {
+      font-size: 10px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+    .order-panel__compare {
+      font-size: var(--text-xs);
+      color: var(--color-text-secondary);
+      text-align: center;
+    }
+    .order-panel__compare a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .order-panel__compare a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- DIWALI BANNER -->
+  <div style="background-color: var(--color-accent); padding: 10px 0; text-align: center;">
+    <div class="container">
+      <p style="font-size: var(--text-xs); font-weight: 600; color: #fff; letter-spacing: 0.01em;">
+        Diwali 2026 · October 20
+        <a href="contact.html" style="font-weight: 700; color: #fff; text-decoration: underline; text-underline-offset: 2px; margin-left: 12px;">Claim a slot →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Gift<span>-it</span></a>
+        <nav aria-label="Primary">
+          <ul class="nav__links" role="list">
+            <li><a href="pricing.html" class="nav__link is-active">Packages</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__actions">
+          <a href="contact.html" class="btn btn--primary">Plan Diwali gifting</a>
+          <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobile-nav">
+      <a href="pricing.html" class="nav__link">Packages</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <div class="nav__mobile-actions">
+        
+        <a href="contact.html" class="btn btn--primary btn--full">Plan Diwali gifting</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="pkg-hero">
+      <div class="container">
+        <a href="pricing.html" class="pkg-hero__back">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          All packages
+        </a>
+        <p class="pkg-hero__eyebrow">Classic Diwali Box · Entry package</p>
+        <h1 class="pkg-hero__title">Simple. Sweet.<br>Thoughtful.</h1>
+        <p class="pkg-hero__price"><strong>₹1,499</strong> per employee · all-in</p>
+        <div class="pkg-hero__pills">
+          <span class="pkg-pill">🪔 500g premium mithai</span>
+          <span class="pkg-pill">📦 Branded kraft box</span>
+          <span class="pkg-pill">✉️ Personalised Diwali card</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="pkg-body">
+      <div class="container">
+        <div class="pkg-body__inner">
+
+          <!-- LEFT: DETAIL -->
+          <div>
+
+            <!-- IMAGE -->
+            <div class="pkg-image">
+              <img
+                src="https://images.unsplash.com/photo-1695568180783-003f8dcf4a55?w=900&h=500&fit=crop&auto=format&q=85"
+                alt="Traditional Indian sweets on trays"
+                loading="eager"
+              >
+              <span class="pkg-image__label">🪔 Classic Diwali Box</span>
+            </div>
+
+            <!-- WHAT'S INSIDE -->
+            <h2 class="pkg-section-title">What's inside every box</h2>
+            <div class="pkg-items">
+              <div class="pkg-item">
+                <span class="pkg-item__emoji">🍬</span>
+                <div class="pkg-item__body">
+                  <p class="pkg-item__name">500g Assorted Mithai</p>
+                  <span class="pkg-item__tag">Kaju Katli · Motichoor Ladoo · Peda</span>
+                </div>
+                <span class="pkg-item__check">Included</span>
+              </div>
+              <div class="pkg-item">
+                <span class="pkg-item__emoji">📦</span>
+                <div class="pkg-item__body">
+                  <p class="pkg-item__name">Branded Kraft Gift Box</p>
+                  <span class="pkg-item__tag">Company name on lid · satin ribbon</span>
+                </div>
+                <span class="pkg-item__check">Included</span>
+              </div>
+              <div class="pkg-item">
+                <span class="pkg-item__emoji">✉️</span>
+                <div class="pkg-item__body">
+                  <p class="pkg-item__name">Personalised Diwali Card</p>
+                  <span class="pkg-item__tag">Your message · printed per order</span>
+                </div>
+                <span class="pkg-item__check">Included</span>
+              </div>
+            </div>
+
+            <!-- OPTIONS -->
+            <h2 class="pkg-section-title">Customise your box</h2>
+            <div class="options-section">
+              <p class="options-section__intro">All options below are available at the same ₹1,499 price. Mention your preference in the quote form or WhatsApp — highlighted is our default.</p>
+
+              <div class="options-category">
+                <p class="options-category__label">Mithai selection</p>
+                <div class="options-grid">
+
+                  <!-- ✅ Kaju Katli — explicitly tagged, free, Diwali context -->
+                  <div class="option-card option-card--default">
+                    <img
+                      class="option-card__img"
+                      src="https://images.unsplash.com/photo-1699708263762-00ca477760bd?w=400&h=220&fit=crop&auto=format&q=75"
+                      alt="Kaju Katli and assorted Diwali sweets on a plate"
+                      loading="lazy"
+                      width="400" height="220"
+                    >
+                    <span class="option-card__emoji" aria-hidden="true">🍬</span>
+                    <p class="option-card__name">Classic festival mix</p>
+                    <span class="option-badge">Default</span>
+                  </div>
+
+                  <!-- No accurate free photo for sugar-free mithai — emoji only -->
+                  <div class="option-card">
+                    <span class="option-card__emoji" aria-hidden="true">🌿</span>
+                    <p class="option-card__name">Sugar-free mix</p>
+                    <p class="option-card__sub">Same sweets, no added sugar</p>
+                  </div>
+
+                  <!-- ✅ Bowls of dry nuts & dried fruit — shelf-stable, accurate -->
+                  <div class="option-card">
+                    <img
+                      class="option-card__img"
+                      src="https://images.unsplash.com/photo-1769255485022-f9bb6d6e8169?w=400&h=220&fit=crop&auto=format&q=75"
+                      alt="Assorted dry fruits and nuts in small bowls — almonds, cashews, pistachios"
+                      loading="lazy"
+                      width="400" height="220"
+                    >
+                    <span class="option-card__emoji" aria-hidden="true">🏺</span>
+                    <p class="option-card__name">Long shelf-life dry mithai</p>
+                  </div>
+
+                  <!-- No accurate free photo for ready-to-serve tin — emoji only -->
+                  <div class="option-card">
+                    <span class="option-card__emoji" aria-hidden="true">🫙</span>
+                    <p class="option-card__name">Ready-to-serve tin</p>
+                    <p class="option-card__sub">Pre-portioned, sealed per order</p>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="options-category">
+                <p class="options-category__label">Packaging</p>
+                <div class="options-grid">
+
+                  <!-- ✅ Kraft gift box with ribbon — directly relevant -->
+                  <div class="option-card option-card--default">
+                    <img
+                      class="option-card__img"
+                      src="https://images.unsplash.com/photo-1764845357195-06f744d1c972?w=400&h=220&fit=crop&auto=format&q=75"
+                      alt="Brown kraft paper gift box with ribbon — company name on lid"
+                      loading="lazy"
+                      width="400" height="220"
+                    >
+                    <span class="option-card__emoji" aria-hidden="true">📦</span>
+                    <p class="option-card__name">Branded kraft gift box</p>
+                    <span class="option-badge">Default</span>
+                  </div>
+
+                  <!-- No accurate free round tin photo — emoji only -->
+                  <div class="option-card">
+                    <span class="option-card__emoji" aria-hidden="true">🥫</span>
+                    <p class="option-card__name">Branded round tin</p>
+                    <p class="option-card__sub">Metal lid, embossed label</p>
+                  </div>
+
+                  <!-- ✅ Personalised jute tote bag — directly relevant, free photo -->
+                  <div class="option-card">
+                    <img
+                      class="option-card__img"
+                      src="https://images.unsplash.com/photo-1625552189081-9a268f141875?w=400&h=220&fit=crop&auto=format&q=75"
+                      alt="Natural jute tote bag with personalised initials — eco-friendly corporate gift"
+                      loading="lazy"
+                      width="400" height="220"
+                    >
+                    <span class="option-card__emoji" aria-hidden="true">🛍️</span>
+                    <p class="option-card__name">Jute tote bag</p>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="options-category">
+                <p class="options-category__label">Greeting card</p>
+                <div class="options-grid">
+
+                  <!-- ✅ Printed card photo — accurate, directly relevant -->
+                  <div class="option-card option-card--default">
+                    <img
+                      class="option-card__img"
+                      src="https://images.unsplash.com/photo-1627618998627-70a92a874cc2?w=400&h=220&fit=crop&auto=format&q=75"
+                      alt="Personalised Diwali greeting card printed on A6 paper in kraft envelope"
+                      loading="lazy"
+                      width="400" height="220"
+                    >
+                    <span class="option-card__emoji" aria-hidden="true">✉️</span>
+                    <p class="option-card__name">Printed A6 card</p>
+                    <span class="option-badge">Default</span>
+                  </div>
+
+                  <!-- No accurate free QR greeting card photo — emoji only -->
+                  <div class="option-card">
+                    <span class="option-card__emoji" aria-hidden="true">📱</span>
+                    <p class="option-card__name">QR video card</p>
+                    <p class="option-card__sub">Scan to play a video message</p>
+                  </div>
+
+                </div>
+              </div>
+
+              <!--
+              IMAGE VALIDATION RECORD
+              ──────────────────────────────────────────────────────────────────
+              src                              | option              | result
+              ──────────────────────────────────────────────────────────────────
+              photo-1699708263762-00ca477760bd | Classic festival mix| ✅ kept — Kaju Katli, Diwali-tagged, free
+              (none)                           | Sugar-free mix      | ✅ removed — no accurate free photo; emoji only
+              photo-1769255485022-f9bb6d6e8169 | Long shelf-life dry | ✅ kept — dry nuts & fruit bowls, shelf-stable
+              (none)                           | Ready-to-serve tin  | ✅ removed — no accurate free photo; emoji only
+              photo-1764845357195-06f744d1c972 | Kraft gift box      | ✅ kept — kraft paper box, ribbon visible
+              (none)                           | Branded round tin   | ✅ removed — no accurate free photo; emoji only
+              photo-1625552189081-9a268f141875 | Jute tote bag       | ✅ kept — jute bag with personalised tag
+              photo-1627618998627-70a92a874cc2 | Printed A6 card     | ✅ kept — physical printed card, accurate
+              (none)                           | QR video card       | ✅ removed — no accurate free photo; emoji only
+              ──────────────────────────────────────────────────────────────────
+              -->
+
+              <p class="options-section__note">💬 Mention your preferred mithai, packaging, or card option in the quote form or WhatsApp — no extra charge for switching within this tier.</p>
+            </div>
+
+            <!-- BEST FOR -->
+
+            <!-- FAQ -->
+            <h2 class="pkg-section-title">Common questions</h2>
+            <div class="pkg-faq">
+
+              <div class="pkg-faq-item">
+                <button class="pkg-faq-q" aria-expanded="false">
+                  What's the minimum order for this package?
+                  <svg class="pkg-faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="pkg-faq-a">Minimum is 20 units. Bulk sourcing and branded packaging only makes financial sense at that scale — below 20, the per-unit cost rises significantly and we can't maintain the ₹1,499 price point.</p>
+              </div>
+
+              <div class="pkg-faq-item">
+                <button class="pkg-faq-q" aria-expanded="false">
+                  How fresh are the sweets?
+                  <svg class="pkg-faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="pkg-faq-a">Sweets are sourced from local Bengaluru vendors and packed within 48 hours of dispatch. Shelf life is 7–10 days from the delivery date — plenty of time for your employees to enjoy them over Diwali week.</p>
+              </div>
+
+              <div class="pkg-faq-item">
+                <button class="pkg-faq-q" aria-expanded="false">
+                  Can I add my company logo to the box?
+                  <svg class="pkg-faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="pkg-faq-a">Your company name appears on the outer sleeve label and the Diwali card as standard. For full logo printing on the box itself, mention it when you submit the form — available for orders above 100 units.</p>
+              </div>
+
+              <div class="pkg-faq-item">
+                <button class="pkg-faq-q" aria-expanded="false">
+                  Do all employees get the same sweets?
+                  <svg class="pkg-faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="pkg-faq-a">Yes — the Classic Box is a fixed composition. This is intentional: standardising the gift removes complexity, speeds up packing, and keeps the per-unit cost at ₹1,499. If you want different boxes for different levels, look at mixing the Classic with the Hamper or Premium.</p>
+              </div>
+
+              <div class="pkg-faq-item">
+                <button class="pkg-faq-q" aria-expanded="false">
+                  When do I need to confirm the order?
+                  <svg class="pkg-faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="pkg-faq-a">Submit your quote form as early as possible so we can confirm sourcing and packaging in time. We'll let you know the lead time when we send your quote.</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- RIGHT: ORDER PANEL -->
+          <div>
+            <div class="order-panel">
+              <div>
+                <p class="order-panel__name">Classic Diwali Box</p>
+                <p class="order-panel__price">₹1,499 <span>/ employee</span></p>
+              </div>
+              <hr class="order-panel__divider">
+              <div class="order-panel__rows">
+                <div class="order-panel__row">
+                  <span class="order-panel__row-label">500g premium mithai</span>
+                  <span class="order-panel__row-value">Included</span>
+                </div>
+                <div class="order-panel__row">
+                  <span class="order-panel__row-label">Branded kraft box + ribbon</span>
+                  <span class="order-panel__row-value">Included</span>
+                </div>
+                <div class="order-panel__row">
+                  <span class="order-panel__row-label">Personalised Diwali card</span>
+                  <span class="order-panel__row-value">Included</span>
+                </div>
+                <div class="order-panel__row">
+                  <span class="order-panel__row-label">Minimum order</span>
+                  <span class="order-panel__row-value">20 units</span>
+                </div>
+              </div>
+              <hr class="order-panel__divider">
+              <a href="contact.html?budget=1499" class="btn btn--primary btn--full btn--lg">Get a quote for this package →</a>
+              <a href="https://wa.me/917090781972?text=Hi%2C%20I%27m%20interested%20in%20the%20Classic%20Diwali%20Box%20at%20%E2%82%B91%2C499%20per%20employee." target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--full">WhatsApp us directly</a>
+              <p class="order-panel__note">No payment until you approve the quote · 50% advance to book · balance on dispatch</p>
+              <hr class="order-panel__divider">
+              <p class="order-panel__compare">
+                Want more? Compare with the
+                <a href="diwali-hamper.html">Diwali Hamper ₹2,999 →</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-band__inner">
+          <div>
+            <h2 class="cta-band__headline" id="cta-heading">Ready to gift your team this Diwali?</h2>
+            <p class="cta-band__sub">No payment until you approve · 50% advance to confirm · balance on dispatch.</p>
+          </div>
+          <div class="cta-band__actions">
+            <a href="pricing.html" class="btn btn--outline btn--lg">← All packages</a>
+            <a href="contact.html?budget=1499" class="btn btn--primary btn--lg">Get a quote →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Gift<span>-it</span></p>
+          <p class="footer__brand-desc">Diwali gifting for Indian companies — sourced, packaged, delivered.</p>
+        </div>
+        <div>
+          <p class="footer__col-label">Packages</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="classic-box.html" class="footer__link">Classic Box · ₹1,499</a></li>
+            <li><a href="diwali-hamper.html" class="footer__link">Diwali Hamper · ₹2,999</a></li>
+            <li><a href="premium-box.html" class="footer__link">Premium Hamper · ₹4,999</a></li>
+            <li><a href="luxury-box.html" class="footer__link">Luxury Gift Box · ₹9,999</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-label">Company</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-label">Get a quote</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="contact.html" class="footer__link">Submit order brief</a></li>
+            <li><a href="https://wa.me/917090781972" class="footer__link" target="_blank" rel="noopener">WhatsApp us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Gift-it Technologies Pvt. Ltd. · Bengaluru, India</p>
+        <nav aria-label="Legal"><ul class="footer__legal" role="list">
+          <li><a href="#" class="footer__legal-link">Privacy</a></li>
+          <li><a href="#" class="footer__legal-link">Terms</a></li>
+        </ul></nav>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/917090781972?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20the%20Classic%20Diwali%20Box"
+     class="whatsapp-fab" target="_blank" rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('is-open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+    document.querySelectorAll('.pkg-faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.pkg-faq-item');
+        const open = item.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+
+    // OPTION CARD SELECTION
+    document.querySelectorAll('.options-category').forEach(group => {
+      const cards = Array.from(group.querySelectorAll('.option-card'));
+
+      // Mark each card's original-default state once on load
+      cards.forEach(card => {
+        card.setAttribute('role', 'radio');
+        card.setAttribute('tabindex', card.classList.contains('option-card--default') ? '0' : '-1');
+        card.setAttribute('aria-checked', card.classList.contains('option-card--default') ? 'true' : 'false');
+        if (card.classList.contains('option-card--default')) {
+          card.dataset.isOriginalDefault = 'true';
+        }
+      });
+
+      function selectCard(target) {
+        cards.forEach(card => {
+          const isTarget = card === target;
+
+          // Toggle selected class
+          card.classList.toggle('option-card--default', isTarget);
+          card.setAttribute('aria-checked', isTarget ? 'true' : 'false');
+          card.setAttribute('tabindex', isTarget ? '0' : '-1');
+
+          // Remove any existing badge
+          const existing = card.querySelector('.option-badge');
+          if (existing) existing.remove();
+
+          // Add badge only to the selected card
+          if (isTarget) {
+            const badge = document.createElement('span');
+            badge.className = 'option-badge';
+            badge.textContent = card.dataset.isOriginalDefault ? 'Default' : 'Selected';
+            card.appendChild(badge);
+          }
+        });
+      }
+
+      cards.forEach(card => {
+        // Click to select
+        card.addEventListener('click', () => selectCard(card));
+
+        // Keyboard: Enter or Space to select
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectCard(card);
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

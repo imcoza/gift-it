@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift-it — Diwali Corporate Gifting for Indian Startups</title>
+  <meta name="description" content="Gift your entire team this Diwali without the spreadsheet. End-to-end sourcing, branded packaging, delivery to 19,000+ pincodes. Bengaluru-based. 5 pilot slots open.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* DIWALI BANNER ---------------------------------------------- */
+    .diwali-banner {
+      background-color: var(--color-accent);
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .diwali-banner__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--s3);
+      flex-wrap: wrap;
+    }
+
+    .diwali-banner__text {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .diwali-banner__dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      display: inline-block;
+    }
+
+    .diwali-banner__link {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      white-space: nowrap;
+    }
+
+    .diwali-banner__link:hover { opacity: 0.85; }
+
+    /* WHATSAPP BUTTON -------------------------------------------- */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: transform var(--ease), opacity var(--ease);
+    }
+
+    .whatsapp-fab:hover { transform: scale(1.08); opacity: 0.95; }
+
+    /* HERO -------------------------------------------------------- */
+    .hero {
+      padding-top: var(--s15);
+      padding-bottom: var(--s15);
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s10);
+      align-items: center;
+    }
+
+    .hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--s3);
+    }
+
+    .hero__title {
+      font-size: var(--text-display);
+      font-weight: var(--weight-bold);
+      line-height: var(--lh-display);
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--s4);
+    }
+
+    .hero__title em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+
+    .hero__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      max-width: 48ch;
+      line-height: 1.6;
+      margin-bottom: var(--s5);
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      flex-wrap: wrap;
+      margin-bottom: var(--s5);
+    }
+
+    .hero__footnote {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    /* Product mock UI */
+    .product-mock {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--s4);
+      position: relative;
+    }
+
+    .product-mock__topbar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: var(--s4);
+    }
+
+    .product-mock__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--color-border);
+    }
+
+    .product-mock__title-bar {
+      flex: 1;
+      height: 10px;
+      background-color: var(--color-border-faint);
+      border-radius: 5px;
+      margin-left: var(--s1);
+    }
+
+    .product-mock__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--s2);
+    }
+
+    .product-mock__heading {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--s4);
+    }
+
+    .mock-field {
+      background-color: var(--color-surface-alt);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 10px var(--s2);
+      margin-bottom: var(--s2);
+    }
+
+    .mock-field__label {
+      font-size: 10px;
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 3px;
+    }
+
+    .mock-field__value {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-primary);
+    }
+
+    .mock-status-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: var(--s3) 0;
+      border-top: 1px solid var(--color-border);
+      margin-top: var(--s2);
+    }
+
+    .mock-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: var(--text-xs);
+      color: var(--color-text-secondary);
+    }
+
+    .mock-status__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--color-success);
+      flex-shrink: 0;
+    }
+
+    .mock-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--color-accent);
+      border-radius: var(--radius-md);
+      padding: 11px var(--s2);
+      margin-top: var(--s3);
+    }
+
+    .mock-btn__text {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: #fff;
+    }
+
+    .mock-btn__arrow {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Floating badges on the mock */
+    .mock-badge {
+      position: absolute;
+      background-color: var(--color-surface-raised);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 10px var(--s2);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+    }
+
+    .mock-badge--tl {
+      top: -18px;
+      left: -20px;
+    }
+
+    .mock-badge--br {
+      bottom: -18px;
+      right: -20px;
+    }
+
+    .mock-badge__stat {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* TRUST BAR --------------------------------------------------- */
+    .trust-bar {
+      padding: var(--s6) 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .trust-bar__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--s4);
+    }
+
+    /* FEATURES ---------------------------------------------------- */
+    .features { padding: var(--s15) 0; }
+
+    .features__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s3);
+      margin-top: var(--s8);
+    }
+
+    .feature-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s5);
+    }
+
+    .feature-card__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background-color: var(--color-accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--s3);
+      color: var(--color-accent);
+    }
+
+    .feature-card__name {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.015em;
+      color: var(--color-text-primary);
+      margin-bottom: var(--s1);
+    }
+
+    .feature-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* GIFT PREVIEW STRIP ----------------------------------------- */
+    .gift-preview-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s2);
+      margin-top: var(--s6);
+      margin-bottom: var(--s8);
+    }
+
+    .gift-preview-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background-color: var(--color-surface-alt);
+      cursor: default;
+    }
+
+    .gift-preview-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 500ms ease;
+    }
+
+    .gift-preview-item:hover img { transform: scale(1.05); }
+
+    .gift-preview-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(10, 12, 20, 0.70) 100%);
+      pointer-events: none;
+    }
+
+    .gift-preview-item__label {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      z-index: 2;
+      font-size: 11px;
+      font-weight: var(--weight-semibold);
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.4;
+    }
+
+    .gift-preview-item__price {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--color-accent);
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 860px) {
+      .gift-preview-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .gift-preview-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* HOW IT WORKS ----------------------------------------------- */
+    .how { padding: var(--s15) 0; border-top: 1px solid var(--color-border); }
+
+    .how__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s4);
+      margin-top: var(--s8);
+      position: relative;
+    }
+
+    .how__steps::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 1px;
+      background: linear-gradient(to right, var(--color-border), var(--color-border));
+    }
+
+    .how-step { position: relative; }
+
+    .how-step__number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-accent);
+      margin-bottom: var(--s3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-step__title {
+      font-size: var(--text-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--s1);
+    }
+
+    .how-step__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* USE CASES --------------------------------------------------- */
+    .usecases { padding: var(--s15) 0; border-top: 1px solid var(--color-border); }
+
+    .usecases__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s3);
+      margin-top: var(--s8);
+    }
+
+    .usecase-card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+    }
+
+    .usecase-card__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--s2);
+    }
+
+    .usecase-card__icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .usecase-card__tag {
+      font-size: 10px;
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background-color: var(--color-accent-dim);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .usecase-card__title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.015em;
+      color: var(--color-text-primary);
+    }
+
+    .usecase-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .usecase-card__link {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: auto;
+      transition: gap var(--ease);
+    }
+
+    .usecase-card__link:hover { gap: 8px; }
+
+    /* INTEGRATIONS ------------------------------------------------ */
+    .integrations { padding: var(--s15) 0; border-top: 1px solid var(--color-border); }
+
+    .integrations__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s3);
+      margin-top: var(--s8);
+    }
+
+    .integ-group__label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--s2);
+    }
+
+    .integ-group__items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .integ-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px var(--s2);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+    }
+
+    .integ-item__dot {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-surface-alt);
+      border: 1px solid var(--color-border);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    /* TESTIMONIAL ------------------------------------------------- */
+    .testimonial { padding: var(--s15) 0; border-top: 1px solid var(--color-border); }
+
+    .testimonial__card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s8);
+      display: grid;
+      grid-template-columns: 160px 1px 1fr;
+      gap: var(--s8);
+      align-items: center;
+    }
+
+    .testimonial__stat { text-align: center; }
+
+    .testimonial__number {
+      font-size: 52px;
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.04em;
+      color: var(--color-text-primary);
+      line-height: 1;
+    }
+
+    .testimonial__stat-label {
+      margin-top: 8px;
+      font-size: var(--text-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .testimonial__divider {
+      background-color: var(--color-border);
+      height: 100%;
+      min-height: 72px;
+    }
+
+    .testimonial__quote {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-regular);
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      max-width: var(--prose-max);
+      margin-bottom: var(--s3);
+    }
+
+    .testimonial__source {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+    .testimonial__source strong {
+      color: var(--color-text-primary);
+      font-weight: var(--weight-medium);
+    }
+
+    /* RESPONSIVE ------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .features__grid { grid-template-columns: repeat(2, 1fr); }
+      .integrations__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 860px) {
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: var(--s8);
+      }
+
+      .how__steps { grid-template-columns: repeat(2, 1fr); }
+      .how__steps::before { display: none; }
+
+      .testimonial__card {
+        grid-template-columns: 1fr;
+        gap: var(--s4);
+        padding: var(--s5);
+      }
+      .testimonial__divider { width: 100%; height: 1px; min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .features__grid   { grid-template-columns: 1fr; }
+      .usecases__grid   { grid-template-columns: 1fr; }
+      .how__steps       { grid-template-columns: 1fr; }
+      .integrations__grid { grid-template-columns: 1fr; }
+
+      .hero__actions { flex-direction: column; align-items: flex-start; }
+    }
+
+
+    /* LOGO BAR --------------------------------------------------- */
+    .logo-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s2);
+      align-items: center;
+    }
+    .logo-bar__item {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-muted);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 5px 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DIWALI BANNER -->
+  <div class="diwali-banner" role="banner" aria-label="Diwali 2026 announcement">
+    <div class="container">
+      <div class="diwali-banner__inner">
+        <span class="diwali-banner__text">Diwali 2026 · October 20</span>
+        <span class="diwali-banner__dot" aria-hidden="true"></span>
+        <span class="diwali-banner__text">5 pilot slots remaining for Bengaluru companies</span>
+        <span class="diwali-banner__dot" aria-hidden="true"></span>
+        <a href="contact.html" class="diwali-banner__link">Claim your slot →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="Gift-it home">Gift<span>-it</span></a>
+        <nav aria-label="Primary">
+          <ul class="nav__links" role="list">
+            <li><a href="pricing.html" class="nav__link">Packages</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__actions">
+          
+          <a href="contact.html" class="btn btn--primary">Plan Diwali gifting</a>
+          <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobile-nav" role="navigation" aria-label="Mobile">
+      <a href="pricing.html" class="nav__link">Packages</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <div class="nav__mobile-actions">
+        
+        <a href="contact.html" class="btn btn--primary btn--full">Plan Diwali gifting</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero__inner">
+
+          <div>
+            <span class="hero__kicker" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 6H15L11 9.5L12.5 14.5L8 11.5L3.5 14.5L5 9.5L1 6H6L8 1Z" fill="currentColor"/></svg>
+              Diwali 2026 · Bengaluru
+            </span>
+            <h1 class="hero__title" id="hero-heading">
+              Gift your entire team<br>this Diwali — <em>without the spreadsheet.</em>
+            </h1>
+            <p class="hero__sub">
+              We source the gifts, handle branded packaging, and deliver to every address. Works for 50 to 5,000 employees. No payment until you approve.
+            </p>
+            <div class="hero__actions">
+              <a href="contact.html" class="btn btn--primary btn--xl">Start your Diwali campaign →</a>
+              <a href="pricing.html" class="btn btn--outline btn--xl">See campaign pricing</a>
+            </div>
+            <p class="hero__footnote">No payment until you approve · quote within 4 hours</p>
+          </div>
+
+          <!-- Product mock UI -->
+          <div style="position: relative; padding: 24px;">
+            <div class="product-mock">
+              <div class="product-mock__topbar" aria-hidden="true">
+                <span class="product-mock__dot"></span>
+                <span class="product-mock__dot"></span>
+                <span class="product-mock__dot"></span>
+                <span class="product-mock__title-bar"></span>
+              </div>
+
+              <p class="product-mock__label">Festival campaign</p>
+              <p class="product-mock__heading">Diwali 2026</p>
+
+              <div class="mock-field">
+                <p class="mock-field__label">Employees</p>
+                <p class="mock-field__value">214 employees · 6 cities across India</p>
+              </div>
+
+              <div class="mock-field">
+                <p class="mock-field__label">Gift tier</p>
+                <p class="mock-field__value">Popular · ₹2,000 per head · artisanal hamper</p>
+              </div>
+
+              <div class="mock-field">
+                <p class="mock-field__label">Diwali message</p>
+                <p class="mock-field__value" style="color: var(--color-text-secondary);">
+                  "Wishing you and your family a bright and joyful Diwali — Team Meridian."
+                </p>
+              </div>
+
+              <div class="mock-status-row" aria-hidden="true">
+                <div class="mock-status">
+                  <span class="mock-status__dot"></span>
+                  Quote within 4 hours · No payment until approved
+                </div>
+                <div class="mock-status">
+                  <span class="mock-status__dot"></span>
+                  Branded packaging with company logo
+                </div>
+                <div class="mock-status">
+                  <span class="mock-status__dot"></span>
+                  Delivery status updated per employee
+                </div>
+              </div>
+
+              <div class="mock-btn" aria-hidden="true">
+                <span class="mock-btn__text">Launch Diwali campaign →</span>
+                <span class="mock-btn__arrow">✓</span>
+              </div>
+            </div>
+
+            <div class="mock-badge mock-badge--tl" aria-hidden="true">
+              <span class="mock-badge__stat">214</span>
+              employees covered
+            </div>
+
+            <div class="mock-badge mock-badge--br" aria-hidden="true">
+              <span class="mock-badge__stat">Oct 17</span>
+              estimated delivery
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar" aria-label="How Gift-it works">
+      <div class="container">
+        <p class="trust-bar__label">Pilot program · Diwali 2026 · Bengaluru-based</p>
+        <div class="logo-bar" aria-label="What you get">
+          <span class="logo-bar__item">₹1,499 · ₹1,999 · ₹2,999 packages</span>
+          <span class="logo-bar__item">2–4 day delivery</span>
+          <span class="logo-bar__item">Branded packaging</span>
+          <span class="logo-bar__item">Sweets + dry fruits only</span>
+          <span class="logo-bar__item">50% advance · balance on dispatch</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" aria-labelledby="features-heading">
+      <div class="container">
+        <span class="eyebrow" aria-hidden="true">Platform</span>
+        <h2 class="section-title" id="features-heading">Everything gifting, in one place</h2>
+        <p class="section-sub">From sending your first gift to running a 10,000-person Diwali campaign — Gift-it handles all of it.</p>
+
+        <div class="features__grid">
+
+          <div class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="feature-card__name">Curated gift packages</h3>
+            <p class="feature-card__desc">Three fixed packages — Classic, Hamper, and Premium — all made with real Indian sweets and dry fruits. Sourced at bulk rates, packaged under your brand.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="feature-card__name">Fully automated campaigns</h3>
+            <p class="feature-card__desc">Connect your HRMS and let Gift-it automatically send on birthdays, work anniversaries, festivals, and milestones — zero manual work.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="feature-card__name">Tracking & reporting</h3>
+            <p class="feature-card__desc">See exactly when gifts are sent, opened, and redeemed. Export reports for finance. Set budgets per team, per occasion, or per head.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="feature-card__name">HRMS integrations</h3>
+            <p class="feature-card__desc">Native integrations with Keka, Darwinbox, GreytHR, Zoho People, and 36 other HR systems popular in India. Setup takes under 10 minutes.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3 class="feature-card__name">Doorstep delivery</h3>
+            <p class="feature-card__desc">Physical gifts shipped to each employee's home address. Delivery included in every package — no logistics coordination needed from your side.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="feature-card__name">On-brand experience</h3>
+            <p class="feature-card__desc">Custom brand colors, logo, and video message on the digital unwrapping page. Your brand, not ours, in the moment that matters most.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" aria-labelledby="how-heading">
+      <div class="container">
+        <span class="eyebrow" aria-hidden="true">How it works</span>
+        <h2 class="section-title" id="how-heading">From employee list to delivered gifts — we handle everything</h2>
+        <p class="section-sub">No integration required. No vendor calls. No spreadsheet tracking. Share your list and we take it from there.</p>
+
+        <!-- Gift tier photo preview strip -->
+        <div class="gift-preview-strip" aria-label="Gift tier previews">
+
+          <div class="gift-preview-item">
+            <img
+              src="https://images.unsplash.com/photo-1559598467-f8b76c8155d0?w=600&h=400&fit=crop&auto=format&q=80"
+              alt="₹1,000 Essential — dry fruits and mithai Diwali hamper"
+              loading="lazy"
+            >
+            <span class="gift-preview-item__price">₹1,000</span>
+            <span class="gift-preview-item__label">Essential · Dry fruits & mithai</span>
+          </div>
+
+          <div class="gift-preview-item">
+            <img
+              src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&h=400&fit=crop&auto=format&q=80"
+              alt="₹2,000 Popular — artisanal Diwali gift hamper"
+              loading="lazy"
+            >
+            <span class="gift-preview-item__price">₹2,000</span>
+            <span class="gift-preview-item__label">Popular · Artisanal hamper</span>
+          </div>
+
+          <div class="gift-preview-item">
+            <img
+              src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=600&h=400&fit=crop&auto=format&q=80"
+              alt="₹5,000 Premium — wellness and skincare gift collection"
+              loading="lazy"
+            >
+            <span class="gift-preview-item__price">₹5,000</span>
+            <span class="gift-preview-item__label">Premium · Wellness kit</span>
+          </div>
+
+          <div class="gift-preview-item">
+            <img
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop&auto=format&q=80"
+              alt="₹10,000 Elite — tech headphones and luxury Diwali gift"
+              loading="lazy"
+            >
+            <span class="gift-preview-item__price">₹10,000</span>
+            <span class="gift-preview-item__label">Elite · Tech & luxury</span>
+          </div>
+
+        </div>
+
+        <div class="how__steps">
+          <div class="how-step">
+            <div class="how-step__number" aria-hidden="true">1</div>
+            <h3 class="how-step__title">Share your employee list</h3>
+            <p class="how-step__desc">Send us a CSV or Google Sheet — name, address, mobile. We'll send you a ready-made template. Takes 5 minutes.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__number" aria-hidden="true">2</div>
+            <h3 class="how-step__title">Pick a gift tier</h3>
+            <p class="how-step__desc">Choose ₹1,000 / ₹2,000 / ₹5,000 / ₹10,000 per head. Each tier has curated gift options — hampers, wellness kits, tech, or experiences.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__number" aria-hidden="true">3</div>
+            <h3 class="how-step__title">We handle everything</h3>
+            <p class="how-step__desc">Vendor coordination, branded packaging with your company logo, and delivery to every address — pan-India in 2–4 days.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step__number" aria-hidden="true">4</div>
+            <h3 class="how-step__title">Track every delivery</h3>
+            <p class="how-step__desc">Live delivery status for every gift. A delivery report lands in your inbox the moment we dispatch. Your team gets a moment they'll remember.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="usecases" aria-labelledby="usecases-heading">
+      <div class="container">
+        <span class="eyebrow" aria-hidden="true">Use cases</span>
+        <h2 class="section-title" id="usecases-heading">One platform for every gifting moment</h2>
+        <p class="section-sub">From a Diwali campaign for 500 employees to a birthday gift for one — Gift-it handles the sourcing, delivery, and tracking so you don't have to.</p>
+
+        <div class="usecases__grid">
+
+          <div class="usecase-card" style="border-color: var(--color-accent);">
+            <div class="usecase-card__header">
+              <span class="usecase-card__tag" style="font-size: 11px;">Now open · Diwali 2026</span>
+            </div>
+            <h3 class="usecase-card__title">Diwali gifting for your team</h3>
+            <p class="usecase-card__desc">Send branded Diwali hampers to your entire team — premium mithai, dry fruits, branded packaging, pan-India delivery. Three packages from ₹1,499 per employee. Share a list, pick a package, we do the rest. Get a quote today.</p>
+            <a href="pricing.html" class="usecase-card__link">
+              See all packages
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <div class="usecase-card">
+            <div class="usecase-card__header">
+              <span class="usecase-card__tag">HR & People teams</span>
+            </div>
+            <h3 class="usecase-card__title">Zero admin effort for HR</h3>
+            <p class="usecase-card__desc">Share your employee list as a CSV — name, address, mobile. We source the gifts, pack them under your brand, and deliver to every address. You get a delivery report. No vendor calls, no tracking spreadsheets.</p>
+            <a href="contact.html" class="usecase-card__link">
+              Get a campaign quote
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NO INTEGRATION NEEDED -->
+    <section class="integrations" aria-labelledby="integrations-heading">
+      <div class="container">
+        <span class="eyebrow" aria-hidden="true">Getting started</span>
+        <h2 class="section-title" id="integrations-heading">No integration needed to get started</h2>
+        <p class="section-sub">Share a CSV — we take it from there. HRMS integrations are available for ongoing gifting programs once you're live.</p>
+
+        <div class="integrations__grid">
+
+          <div>
+            <p class="integ-group__label">For your first campaign</p>
+            <div class="integ-group__items">
+              <div class="integ-item"><span class="integ-item__dot">1</span> Share employee CSV</div>
+              <div class="integ-item"><span class="integ-item__dot">2</span> Pick a gift tier</div>
+              <div class="integ-item"><span class="integ-item__dot">3</span> We source & ship</div>
+              <div class="integ-item"><span class="integ-item__dot">4</span> Delivery tracked per employee</div>
+            </div>
+          </div>
+
+          <div>
+            <p class="integ-group__label">HRMS (Coming for Growth plan)</p>
+            <div class="integ-group__items">
+              <div class="integ-item"><span class="integ-item__dot">Ke</span> Keka</div>
+              <div class="integ-item"><span class="integ-item__dot">Dw</span> Darwinbox</div>
+              <div class="integ-item"><span class="integ-item__dot">Gr</span> GreytHR</div>
+              <div class="integ-item"><span class="integ-item__dot">Zo</span> Zoho People</div>
+            </div>
+          </div>
+
+          <div>
+            <p class="integ-group__label">Delivery partners</p>
+            <div class="integ-group__items">
+              <div class="integ-item"><span class="integ-item__dot">📦</span> Doorstep delivery</div>
+              <div class="integ-item"><span class="integ-item__dot">🔔</span> Tracking per shipment</div>
+            </div>
+          </div>
+
+          <div>
+            <p class="integ-group__label">Sourcing partners</p>
+            <div class="integ-group__items">
+              <div class="integ-item"><span class="integ-item__dot">🍬</span> Sweet vendors — Bengaluru</div>
+              <div class="integ-item"><span class="integ-item__dot">🥜</span> APMC Yeshwanthpur dry fruits</div>
+              <div class="integ-item"><span class="integ-item__dot">📦</span> Kraft packaging suppliers</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOME STATS -->
+    <section class="testimonial" aria-label="What Gift-it delivers">
+      <div class="container">
+        <div class="testimonial__card">
+          <div class="testimonial__stat">
+            <p class="testimonial__number">2–4</p>
+            <p class="testimonial__stat-label">day average<br>delivery across India</p>
+          </div>
+          <div class="testimonial__divider" aria-hidden="true"></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+            <div>
+              <p style="font-size: 48px; font-weight: 700; letter-spacing: -0.04em; color: var(--color-text-primary); line-height: 1;">Zero</p>
+              <p style="margin-top: 8px; font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.5;">HR admin effort required.<br>Share a list — we do everything.</p>
+            </div>
+            <div>
+              <p style="font-size: 48px; font-weight: 700; letter-spacing: -0.04em; color: var(--color-text-primary); line-height: 1;">24 hrs</p>
+              <p style="margin-top: 8px; font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.5;">Quote in your inbox<br>from the time you submit the form.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-band__inner">
+          <div>
+            <h2 class="cta-band__headline" id="cta-heading">Diwali is October 20 — let's get your campaign started.</h2>
+            <p class="cta-band__sub">No payment until you approve · Bengaluru-based team.</p>
+          </div>
+          <div class="cta-band__actions">
+            <a href="pricing.html" class="btn btn--outline btn--lg">See campaign pricing</a>
+            <a href="contact.html" class="btn btn--primary btn--lg">Start your Diwali campaign →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <p class="footer__brand-name">Gift<span>-it</span></p>
+          <p class="footer__brand-desc">Diwali gifting for Indian companies — sourced, packaged, delivered.</p>
+        </div>
+
+        <div>
+          <p class="footer__col-label">Packages</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="classic-box.html" class="footer__link">Classic Box · ₹1,499</a></li>
+            <li><a href="diwali-hamper.html" class="footer__link">Diwali Hamper · ₹2,999</a></li>
+            <li><a href="premium-box.html" class="footer__link">Premium Hamper · ₹4,999</a></li>
+            <li><a href="luxury-box.html" class="footer__link">Luxury Gift Box · ₹9,999</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-label">Company</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="about.html" class="footer__link">About Us</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-label">Get a quote</p>
+          <ul class="footer__col-links" role="list">
+            <li><a href="contact.html" class="footer__link">Submit order brief</a></li>
+            <li><a href="https://wa.me/917090781972" class="footer__link" target="_blank" rel="noopener">WhatsApp us</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Gift-it Technologies Pvt. Ltd. · Bengaluru, India</p>
+        <nav aria-label="Legal">
+          <ul class="footer__legal" role="list">
+            <li><a href="#" class="footer__legal-link">Privacy</a></li>
+            <li><a href="#" class="footer__legal-link">Terms</a></li>
+            <li><a href="#" class="footer__legal-link">Cookies</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/917090781972?text=Hi%2C%20I%20want%20to%20plan%20our%20Diwali%20gifting%20through%20Giftly"
+     class="whatsapp-fab"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('is-open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+
+</body>
+</html>
